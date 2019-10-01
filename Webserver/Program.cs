@@ -9,6 +9,8 @@ namespace Webserver
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            
+            Url url = new Url("/foo/bar/test.jpg?x=2&y=3#test");
         }
     }
 }
