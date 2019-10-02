@@ -6,6 +6,10 @@ namespace Webserver
 {
     public class Response : IResponse
     {
+        public Response()
+        {
+            
+        }
         public IDictionary<string, string> Headers { get; }
         public int ContentLength { get; }
         public string ContentType { get; set; }

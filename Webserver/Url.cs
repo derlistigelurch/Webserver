@@ -11,7 +11,7 @@ namespace Webserver
         public Url(string url)
         {
             this.RawUrl = url;
-            //this.Path = string.IsNullOrEmpty(url) ? "" : url.Contains("?") ? url.Split("?")[0] : this.RawUrl;
+
             if (string.IsNullOrEmpty(this.RawUrl) == false)
             {
                 if (this.RawUrl.Contains("#") || this.RawUrl.Contains("?"))
@@ -36,12 +36,18 @@ namespace Webserver
                 this.Path = "";
             }
 
-            this.ParameterCount = string.IsNullOrEmpty(this.RawUrl) == false && this.RawUrl.Contains("?")
-                ? this.RawUrl.Split("?")[1].Split("&").Length
-                : 0;
+            if (string.IsNullOrEmpty(this.RawUrl) == false && this.RawUrl.Contains("?"))
+            {
+                this.ParameterCount = this.RawUrl.Split("?")[1].Split("&").Length;
+            }
+            else
+            {
+                this.ParameterCount = 0;
+            }
+
+            this.Parameter = new Dictionary<string, string>();
             if (this.ParameterCount > 0 && string.IsNullOrEmpty(RawUrl) == false)
             {
-                this.Parameter = new Dictionary<string, string>();
                 string[] ParameterStrings = this.RawUrl.Split("?")[1].Split("&");
                 foreach (var item in ParameterStrings)
                 {
@@ -50,20 +56,27 @@ namespace Webserver
                 }
             }
 
-            this.Fragment = string.IsNullOrEmpty(this.RawUrl) || this.RawUrl.Contains("#") == false
-                ? ""
-                : this.RawUrl.Split("#")[1];
-            
+            if (string.IsNullOrEmpty(this.RawUrl) == false && this.RawUrl.Contains("#"))
+            {
+                this.Fragment = this.RawUrl.Split("#")[1];
+            }
+            else
+            {
+                this.Fragment = "";
+            }
+
             if (string.IsNullOrEmpty(this.Path) == false)
             {
                 string[] SegmentStrings = this.Path.Split("/");
+                this.Segments = new string[SegmentStrings.Length - 1];
                 for (int i = 1; i < SegmentStrings.Length; i++)
                 {
-                    this.Segments[i] = new string[SegmentStrings[i]];
+                    this.Segments[i - 1] = SegmentStrings[i];
                 }
             }
             else
             {
+                this.Segments = new string[1];
                 this.Segments[0] = "";
             }
         }

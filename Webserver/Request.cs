@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using BIF.SWE1.Interfaces;
@@ -6,6 +7,10 @@ namespace Webserver
 {
     public class Request : IRequest
     {
+        public Request(System.IO.Stream network)
+        {
+            
+        }
         public bool IsValid { get; }
         public string Method { get; }
         public IUrl Url { get; }
