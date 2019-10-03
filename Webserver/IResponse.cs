@@ -28,6 +28,7 @@ namespace BIF.SWE1.Interfaces
         /// Gets or sets the current status code. An Exceptions is thrown, if no status code was set.
         /// </summary>
         int StatusCode { get; set; }
+
         /// <summary>
         /// Returns the status code as string. (200 OK)
         /// </summary>
@@ -50,11 +51,13 @@ namespace BIF.SWE1.Interfaces
         /// </summary>
         /// <param name="content"></param>
         void SetContent(string content);
+
         /// <summary>
         /// Sets a byte[] as content.
         /// </summary>
         /// <param name="content"></param>
         void SetContent(byte[] content);
+
         /// <summary>
         /// Sets the stream as content.
         /// </summary>

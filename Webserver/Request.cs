@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Sockets;
 using BIF.SWE1.Interfaces;
 
 namespace Webserver
 {
     public class Request : IRequest
     {
-        public Request(System.IO.Stream network)
+        public Request(System.IO.Stream stream)
         {
             
         }
+
         public bool IsValid { get; }
         public string Method { get; }
         public IUrl Url { get; }
