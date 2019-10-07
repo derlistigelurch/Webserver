@@ -20,7 +20,6 @@ namespace Webserver
                     if (this.RawUrl.Contains("#"))
                     {
                         this.Path = RawUrl.Split("#").First();
-                        this.Path = RawUrl.Split("#").Last();
                     }
 
                     if (this.RawUrl.Contains("?"))
