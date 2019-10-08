@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -13,50 +14,61 @@ namespace Webserver
     {
         public Request(System.IO.Stream network)
         {
-            StreamReader streamReader = new StreamReader(network, Encoding.UTF8);
+            StreamReader streamReader = new StreamReader(network, Encoding.ASCII);
             this.Headers = new Dictionary<string, string>();
 
-            int lineCount = 0;
             string line;
 
-            while ((line = streamReader.ReadLine()) != null)
+            while ((line = streamReader.ReadLine()) != null && string.IsNullOrEmpty(line) == false)
             {
-                //if line is empty --> "end of header"
-                if (string.IsNullOrEmpty(line) == false)
+                // if line is empty --> "end of header"
+                if (line.Contains(':'))
                 {
-                    if (line.Contains(':'))
+                    string[] temp = line.Split(':');
+                    this.Headers.Add(temp[0], temp[1]);
+                }
+                else
+                {
+                    // first line of http header
+                    // GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1
+                    if (line.Contains(" "))
                     {
-                        string[] temp = line.Split(':');
-                        this.Headers.Add(temp.First(), temp.Last());
+                        string[] temp = line.Split(" ");
+                        if (temp.Length >= 2)
+                        {
+                            this.Method = temp[0].ToUpper();
+                            this.Url = new Url(temp[1]);
+                        }
+                        else
+                        {
+                            this.Method = temp[0].ToUpper();
+                        }
                     }
-
-                    // TODO: Parse first line of http header
-                    /*
-                     * GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1
-                     * Host: net.tutsplus.com
-                     * User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)
-                     * Accept: text/html,application/xhtml+xml,application/xml;q=0.9;q=0.8
-                     * Accept-Language: en-us,en;q=0.5
-                     * Accept-Encoding: gzip,deflate
-                     * Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
-                     * Keep-Alive: 300
-                     * Connection: keep-alive
-                     * Cookie: PHPSESSID=r2t5uvjq435r4q7ib3vtdjq120
-                     * Pragma: no-cache
-                     * Cache-Control: no-cache
-                     */
                 }
             }
-        }
 
-        private void ParseHTTPHeader(string line)
-        {
+            // check if request is valid
+            this.IsValid = true;
+            if (string.IsNullOrEmpty(this.Method))
+            {
+                this.IsValid = false;
+            }
+            else if (!this.Method.Equals("GET") && !this.Method.Equals("POST"))
+            {
+                this.IsValid = false;
+            }
+
+            if (this.Url == null)
+            {
+                this.IsValid = false;
+            }
         }
 
         public bool IsValid { get; }
         public string Method { get; }
         public IUrl Url { get; }
         public IDictionary<string, string> Headers { get; }
+
         public string UserAgent { get; }
         public int HeaderCount { get; }
         public int ContentLength { get; }
