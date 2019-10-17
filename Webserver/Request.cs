@@ -18,9 +18,9 @@ namespace Webserver
 
             string line;
 
+            // if line is empty --> "end of header"
             while ((line = streamReader.ReadLine()) != null && string.IsNullOrEmpty(line) == false)
             {
-                // if line is empty --> "end of header"
                 if (line.Contains(':'))
                 {
                     string[] temp = line.Split(':');
