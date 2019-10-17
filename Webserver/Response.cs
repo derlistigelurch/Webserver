@@ -10,7 +10,7 @@ namespace Webserver
     {
         public Response()
         {
-            this.ServerHeader = "servasServer";
+            this.ServerHeader = "BIF-SWE1-Server";
             this.Headers = new Dictionary<string, string>();
         }
 
@@ -25,7 +25,7 @@ namespace Webserver
             {
                 if (this._statusCode == 0)
                 {
-                    throw new System.Exception("No status code set");
+                    throw new System.InvalidOperationException("No status code set");
                 }
 
                 return this._statusCode;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using BIF.SWE1.Interfaces;
@@ -25,7 +24,7 @@ namespace Webserver
                 if (line.Contains(':'))
                 {
                     string[] temp = line.Split(':');
-                    this.Headers.Add(temp[0], temp[1]);
+                    this.Headers.Add(temp[0].Trim().ToLower(), temp[1].Trim());
                 }
                 else
                 {
@@ -68,9 +67,8 @@ namespace Webserver
         public string Method { get; }
         public IUrl Url { get; }
         public IDictionary<string, string> Headers { get; }
-
-        public string UserAgent { get; }
-        public int HeaderCount { get; }
+        public string UserAgent => Headers["user-agent"];
+        public int HeaderCount => Headers.Count;
         public int ContentLength { get; }
         public string ContentType { get; }
         public Stream ContentStream { get; }
