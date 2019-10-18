@@ -15,12 +15,12 @@ namespace Webserver
             this.RawUrl = url;
             this.ParameterCount = 0;
             this.Parameter = new Dictionary<string, string>();
-            this.Path = "";
+            this.Path = string.Empty;
             this.Segments = new string[1];
-            this.Segments[0] = "";
-            this.FileName = "";
-            this.Extension = "";
-            this.Fragment = "";
+            this.Segments[0] = string.Empty;
+            this.FileName = string.Empty;
+            this.Extension = string.Empty;
+            this.Fragment = string.Empty;
 
             // RawUrl: /hallo/welt/test.jpg?x=1&y=2#ffff
             // Path: /hallo/welt/test.jpg

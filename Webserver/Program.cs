@@ -13,18 +13,22 @@ namespace Webserver
         static void Main(string[] args)
         {
             // test url class
-            Url url = new Url("/hallo/welt/test.jpg?x=1&y=2#ffff");
-            
-            TcpListener listener = new TcpListener(IPAddress.Any, 8081);
+            var url = new Url("/hallo/welt/test.jpg?x=1&y=2#ffff");
+
+            var listener = new TcpListener(IPAddress.Any, 8081);
             listener.Start();
+            
+            while (true)
+            {
+                var socket = listener.AcceptSocket();
+                var stream = new NetworkStream(socket);
 
-            Socket socket = listener.AcceptSocket();
-            NetworkStream stream = new NetworkStream(socket);
-
-            // test request
-            Request request = new Request(stream);
-            // test response
-            Response response = new Response();
+                // test request
+                var request = new Request(stream);
+                // test response
+                var response = new Response();
+                response.Send(stream);
+            }
         }
     }
 }

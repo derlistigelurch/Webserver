@@ -16,6 +16,7 @@
         <e p="Program.cs" t="Include" />
         <e p="Request.cs" t="Include" />
         <e p="Response.cs" t="Include" />
+        <e p="TestPlugin.cs" t="Include" />
         <e p="Url.cs" t="Include" />
         <e p="Webserver.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />

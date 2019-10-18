@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using BIF.SWE1.Interfaces;
@@ -13,7 +14,7 @@ namespace Webserver
     {
         public Request(System.IO.Stream network)
         {
-            StreamReader streamReader = new StreamReader(network, Encoding.ASCII);
+            StreamReader streamReader = new StreamReader(network, Encoding.UTF8);
             this.Headers = new Dictionary<string, string>();
 
             string line;
@@ -67,7 +68,7 @@ namespace Webserver
         public string Method { get; }
         public IUrl Url { get; }
         public IDictionary<string, string> Headers { get; }
-        public string UserAgent => Headers["user-agent"];
+        public string UserAgent => this.Headers["user-agent"];
         public int HeaderCount => Headers.Count;
         public int ContentLength { get; }
         public string ContentType { get; }

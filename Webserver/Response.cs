@@ -11,13 +11,38 @@ namespace Webserver
         public Response()
         {
             this.ServerHeader = "BIF-SWE1-Server";
-            this.Headers = new Dictionary<string, string>();
+            this.Headers = new Dictionary<string, string>
+            {
+                {"Content-Type", string.Empty},
+                {"Content-Length", string.Empty}
+            };
         }
 
         private int _statusCode;
+        private Byte[] _content;
         public IDictionary<string, string> Headers { get; }
-        public int ContentLength { get; }
-        public string ContentType { get; set; }
+
+        public int ContentLength
+        {
+            get
+            {
+                try
+                {
+                    return int.Parse(this.Headers["Content-Length"]);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
+        }
+
+        public string ContentType
+        {
+            get => this.Headers["Content-Type"];
+            set => this.Headers["Content-Type"] = value;
+        }
 
         public int StatusCode
         {
@@ -43,9 +68,9 @@ namespace Webserver
                     case 200:
                         return "200 OK";
                     case 404:
-                        return "404 NOT FOUND";
+                        return "404 Not Found";
                     case 500:
-                        return "500 INTERNAL SERVER ERROR";
+                        return "500 Internal Server Error";
                     default:
                         return null;
                 }
@@ -61,22 +86,58 @@ namespace Webserver
 
         public void SetContent(string content)
         {
-            throw new System.NotImplementedException();
+            this.SetContent(Encoding.UTF8.GetBytes(content));
         }
 
         public void SetContent(byte[] content)
         {
-            throw new System.NotImplementedException();
+            this._content = content;
+            this.Headers["Content-Length"] = content.Length.ToString();
         }
 
         public void SetContent(Stream stream)
         {
-            throw new System.NotImplementedException();
+            // Convert stream to byte array
+            MemoryStream memoryStream = new MemoryStream();
+            stream.CopyTo(memoryStream);
+            SetContent(memoryStream.ToArray());
         }
 
         public void Send(Stream network)
         {
-            throw new System.NotImplementedException();
+            if (network == null)
+            {
+                throw new System.ArgumentNullException(nameof(network));
+            }
+
+            if (string.IsNullOrEmpty(this.ContentType) == false && this.ContentLength <= 0)
+            {
+                throw new System.InvalidOperationException("Setting a content type but no content is not allowed");
+            }
+
+            // Header
+            StreamWriter streamWriter = new StreamWriter(network);
+            streamWriter.WriteLine("HTTP/1.1 {0}", this.Status);
+            streamWriter.WriteLine("Server: {0}", this.ServerHeader);
+
+            streamWriter.WriteLine();
+            // Clears all buffers for the current writer and causes any buffered data to be written to the underlying stream
+            streamWriter.Flush();
+
+            // Content
+            if (this.StatusCode != 404 && string.IsNullOrEmpty(this._content.ToString()) == false)
+            {
+                try
+                {
+                    BinaryWriter binaryWriter = new BinaryWriter(network);
+                    binaryWriter.Write(this._content);
+                    binaryWriter.Flush();
+                }
+                catch (IOException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
         }
     }
 }
