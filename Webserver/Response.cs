@@ -120,12 +120,18 @@ namespace Webserver
             streamWriter.WriteLine("HTTP/1.1 {0}", this.Status);
             streamWriter.WriteLine("Server: {0}", this.ServerHeader);
 
+            foreach (var (key, value) in Headers)
+            {
+                streamWriter.WriteLine("{0}: {1}", key, value);
+                Console.WriteLine("{0}: {1}", key, value);
+            }
+
             streamWriter.WriteLine();
             // Clears all buffers for the current writer and causes any buffered data to be written to the underlying stream
             streamWriter.Flush();
 
             // Content
-            if (this.StatusCode != 404 && string.IsNullOrEmpty(this._content.ToString()) == false)
+            if (this.StatusCode != 404 && this._content != null)
             {
                 try
                 {
