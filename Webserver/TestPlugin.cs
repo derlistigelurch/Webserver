@@ -9,27 +9,39 @@ namespace Webserver
     {
         public float CanHandle(IRequest req)
         {
-            if (req.Url.RawUrl.Contains("test") == false)
+            if (req.Url.RawUrl.Equals("/"))
             {
-                return 0.0f;
+                return 1.0f;
             }
 
-            if (req.Url.Parameter.ContainsKey("test_plugin") == false)
+            if (req.Url.Parameter.ContainsKey("test_plugin"))
             {
-                return 0.4f;
+                if (bool.TryParse(req.Url.Parameter["test_plugin"], out var canHandle))
+                {
+                    return canHandle ? 1.0f : 0.0f;
+                }
             }
 
-            if (bool.TryParse(req.Url.Parameter["test_plugin"], out bool canHandle))
+            if (req.Url.Path.Contains("test"))
             {
-                return canHandle ? 1.0f : 0.0f;
+                return 0.5f;
             }
 
-            return 0.6f;
+            return 0.0f;
         }
 
         public IResponse Handle(IRequest req)
         {
-            return new Response();
+            Response response = new Response
+            {
+                StatusCode = 200,
+                ContentType = "text/html"
+            };
+
+            response.AddHeader("Connection", "close");
+            response.SetContent("<html><body><h1>Hello World!</h1><p>testPlugin</p></body></html>");
+
+            return response;
         }
     }
 }

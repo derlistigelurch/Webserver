@@ -15,11 +15,12 @@ namespace Webserver
             {
                 {"Content-Type", string.Empty},
                 {"Content-Length", string.Empty}
+                //{"Connection", string.Empty}
             };
         }
 
         private int _statusCode;
-        private Byte[] _content;
+        private byte[] _content;
         public IDictionary<string, string> Headers { get; }
 
         public int ContentLength
@@ -92,7 +93,7 @@ namespace Webserver
         public void SetContent(byte[] content)
         {
             this._content = content;
-            this.Headers["Content-Length"] = content.Length.ToString();
+            this.Headers["Content-Length"] = this._content.Length.ToString();
         }
 
         public void SetContent(Stream stream)
@@ -122,8 +123,10 @@ namespace Webserver
 
             foreach (var (key, value) in Headers)
             {
-                streamWriter.WriteLine("{0}: {1}", key, value);
-                Console.WriteLine("{0}: {1}", key, value);
+                if (string.IsNullOrEmpty(value) == false)
+                {
+                    streamWriter.WriteLine("{0}: {1}", key, value);
+                }
             }
 
             streamWriter.WriteLine();

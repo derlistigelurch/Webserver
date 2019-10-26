@@ -17,7 +17,7 @@ namespace Webserver
 
             var listener = new TcpListener(IPAddress.Any, 8081);
             listener.Start();
-            
+
             while (true)
             {
                 var socket = listener.AcceptSocket();
@@ -25,9 +25,18 @@ namespace Webserver
 
                 // test request
                 var request = new Request(stream);
+
                 // test response
-                var response = new Response();
-                response.Send(stream);
+                //var response = new Response();
+
+                // test testplugin
+                var testPlugin = new TestPlugin();
+                if (testPlugin.CanHandle(request) > 0.0f)
+                {
+                    var pluginResponse = testPlugin.Handle(request);
+                    // if(pluginResponse != null)
+                    pluginResponse?.Send(stream);
+                }
             }
         }
     }
