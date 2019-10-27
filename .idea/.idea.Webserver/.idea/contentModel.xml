@@ -13,6 +13,7 @@
         <e p="IRequest.cs" t="Include" />
         <e p="IResponse.cs" t="Include" />
         <e p="IUrl.cs" t="Include" />
+        <e p="PluginManager.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Request.cs" t="Include" />
         <e p="Response.cs" t="Include" />
