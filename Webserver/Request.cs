@@ -19,7 +19,7 @@ namespace Webserver
 
             string line;
 
-            // if line is empty --> "end of header"
+            // if line is empty --> end of header
             while ((line = streamReader.ReadLine()) != null && string.IsNullOrEmpty(line) == false)
             {
                 if (line.Contains(':'))
@@ -34,7 +34,7 @@ namespace Webserver
                     if (line.Contains(" "))
                     {
                         string[] temp = line.Split(" ");
-                        if (temp.Length >= 2)
+                        if (temp.Length > 2)
                         {
                             this.Method = temp[0].ToUpper();
                             this.Url = new Url(temp[1]);

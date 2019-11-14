@@ -15,7 +15,6 @@ namespace Webserver
             {
                 {"Content-Type", string.Empty},
                 {"Content-Length", string.Empty}
-                //{"Connection", string.Empty}
             };
         }
 
