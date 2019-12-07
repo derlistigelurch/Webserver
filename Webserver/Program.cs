@@ -24,7 +24,8 @@ namespace Webserver
 
                 // var thread = new Thread(HandleRequest);
                 // thread.Start(socket);
-                ThreadPool.QueueUserWorkItem(HandleRequest, socket);
+                //ThreadPool.QueueUserWorkItem(HandleRequest, socket);
+                HandleRequest(socket);
             }
         }
 

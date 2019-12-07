@@ -47,6 +47,25 @@ namespace Webserver
                 }
             }
 
+            // POST /test HTTP/1.1
+            // Host: foo.example
+            // Content-Type: application/x-www-form-urlencoded
+            // Content-Length: 27
+            //
+            // field1=value1&field2=value2 <-- CONTENT
+
+            // read content
+            if (this.ContentLength > 0)
+            {
+                // readBlock needs a character array
+                char[] content = new char[this.ContentLength];
+                // read the content stream
+                streamReader.ReadBlock(content, 0, this.ContentLength);
+                this.ContentString = new string(content);
+                this.ContentBytes = Encoding.UTF8.GetBytes(content);
+                this.ContentStream = new MemoryStream(this.ContentBytes);
+            }
+
             // check if request is valid
             this.IsValid = true;
             if (string.IsNullOrEmpty(this.Method))
@@ -70,8 +89,15 @@ namespace Webserver
         public IDictionary<string, string> Headers { get; }
         public string UserAgent => this.Headers["user-agent"];
         public int HeaderCount => Headers.Count;
-        public int ContentLength { get; }
-        public string ContentType { get; }
+
+        public int ContentLength => this.Headers.ContainsKey("content-length")
+            ? int.Parse(Headers["content-length"])
+            : 0;
+
+        public string ContentType => string.IsNullOrEmpty(this.Headers["content-type"])
+            ? string.Empty
+            : this.Headers["content-type"];
+
         public Stream ContentStream { get; }
         public string ContentString { get; }
         public byte[] ContentBytes { get; }
