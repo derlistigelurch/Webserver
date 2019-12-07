@@ -46,6 +46,7 @@ namespace Webserver
                         // Fragment
                         this.Fragment = this.RawUrl.Split("#").Last();
                     }
+
                     if (this.RawUrl.Contains("?"))
                     {
                         // Path

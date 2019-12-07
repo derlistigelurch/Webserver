@@ -46,15 +46,9 @@ namespace Webserver
 
         public int StatusCode
         {
-            get
-            {
-                if (this._statusCode == 0)
-                {
-                    throw new System.InvalidOperationException("No status code set");
-                }
-
-                return this._statusCode;
-            }
+            get => this._statusCode == 0
+                ? throw new System.InvalidOperationException("No status code set")
+                : this._statusCode;
 
             set => this._statusCode = value;
         }
@@ -100,7 +94,8 @@ namespace Webserver
             // Convert stream to byte array
             MemoryStream memoryStream = new MemoryStream();
             stream.CopyTo(memoryStream);
-            SetContent(memoryStream.ToArray());
+            // write byte array to stream
+            this.SetContent(memoryStream.ToArray());
         }
 
         public void Send(Stream network)
