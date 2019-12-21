@@ -15,17 +15,14 @@ namespace Webserver
         {
             var listener = new TcpListener(IPAddress.Any, 8081);
             listener.Start();
-            
+
             // Url url = new Url("/test");
-            
             while (true)
             {
                 var socket = listener.AcceptSocket();
-
                 // var thread = new Thread(HandleRequest);
                 // thread.Start(socket);
-                //ThreadPool.QueueUserWorkItem(HandleRequest, socket);
-                HandleRequest(socket);
+                ThreadPool.QueueUserWorkItem(HandleRequest, socket);
             }
         }
 
