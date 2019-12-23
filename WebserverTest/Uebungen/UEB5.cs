@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BIF.SWE1.Interfaces;
+using Webserver;
+using Webserver.Plugins;
 
 namespace Uebungen
 {
@@ -14,27 +18,27 @@ namespace Uebungen
 
         public IPluginManager GetPluginManager()
         {
-            throw new NotImplementedException();
+            return new PluginManager();
         }
 
         public IRequest GetRequest(System.IO.Stream network)
         {
-            throw new NotImplementedException();
+            return new Request(network);
         }
 
         public IPlugin GetStaticFilePlugin()
         {
-            throw new NotImplementedException();
+            return new StaticFilePlugin();
         }
 
         public string GetStaticFileUrl(string fileName)
         {
-            throw new NotImplementedException();
+            return Path.Combine(Configuration.CurrentConfiguration.StaticFileDirectory, fileName);
         }
 
-        public void SetStatiFileFolder(string folder)
+        public void SetStaticFileFolder(string folder)
         {
-            throw new NotImplementedException();
+            Configuration.CurrentConfiguration.StaticFileDirectory = folder;
         }
     }
 }

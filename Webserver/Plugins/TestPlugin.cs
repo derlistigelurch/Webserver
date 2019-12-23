@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using BIF.SWE1.Interfaces;
 
-namespace Webserver
+namespace  Webserver.Plugins
 {
     public class TestPlugin : IPlugin
     {

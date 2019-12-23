@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using BIF.SWE1.Interfaces;
+using Webserver.Plugins;
 
 namespace Webserver
 {
@@ -11,7 +12,10 @@ namespace Webserver
         public PluginManager()
         {
             Add(new TestPlugin());
-            // Add other plugins here
+            Add(new StaticFilePlugin());
+            Add(new LowerPlugin());
+            Add(new NaviPlugin());
+            Add(new TempPlugin());
         }
 
         public IEnumerable<IPlugin> Plugins { get; } = new List<IPlugin>();

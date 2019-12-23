@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using BIF.SWE1.Interfaces;
 using System.Text;
 using System.Threading;
+using Webserver.Plugins;
 
 namespace Webserver
 {
@@ -19,10 +20,14 @@ namespace Webserver
             // Url url = new Url("/test");
             while (true)
             {
-                var socket = listener.AcceptSocket();
-                // var thread = new Thread(HandleRequest);
-                // thread.Start(socket);
-                ThreadPool.QueueUserWorkItem(HandleRequest, socket);
+                // var config = new Config() {StaticFileDirectory = "res"};
+                // Directory.CreateDirectory(config.StaticFileDirectory);
+                // Console.WriteLine(Path.Combine(config.StaticFileDirectory, "test.tx"));
+                // if (File.Exists(Path.Combine(config.StaticFileDirectory, "test.txt")))
+                // {
+                //     Console.Write("hallo Welt");
+                // }
+                Console.WriteLine("HelloWorld");
             }
         }
 

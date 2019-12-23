@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using BIF.SWE1.Interfaces;
 using System.IO;
+using Webserver;
 
 namespace BIF.SWE1.UnitTests
 {
@@ -21,9 +22,8 @@ namespace BIF.SWE1.UnitTests
         }
     }
 
-    public class Ueb5NoTestPlugin 
+    public class Ueb5NoTestPlugin
     {
-        
     }
 
     [TestFixture]
@@ -37,6 +37,7 @@ namespace BIF.SWE1.UnitTests
         }
 
         #region Helper
+
         private IPlugin SelectPlugin(IPluginManager mgr, IRequest req)
         {
             IPlugin plugin = null;
@@ -53,9 +54,11 @@ namespace BIF.SWE1.UnitTests
 
             return plugin;
         }
+
         #endregion
 
         #region Milestone 2
+
         /// <summary>
         /// Der WebServer kann Plugins laden und benutzen (keine hardcodierten Stellen im Code mehr)
         /// Das statische Dateien Plugin funktioniert (und kann z.B. die Startseite ausliefern)
@@ -66,7 +69,7 @@ namespace BIF.SWE1.UnitTests
         public void milestone2_return_main_page()
         {
             var ueb = CreateInstance();
-            
+
             var mgr = ueb.GetPluginManager();
             Assert.That(mgr, Is.Not.Null, "IUEB5.GetPluginManager returned null");
 
@@ -95,14 +98,14 @@ namespace BIF.SWE1.UnitTests
 
             var mgr = ueb.GetPluginManager();
             Assert.That(mgr, Is.Not.Null, "IUEB5.GetPluginManager returned null");
-            
+
             var req = ueb.GetRequest(RequestHelper.GetValidRequestStream("/i_am_a_unknown_url.html"));
             Assert.That(req, Is.Not.Null, "IUEB5.GetRequest returned null");
 
             var plugin = SelectPlugin(mgr, req);
 
             if (plugin != null)
-            { 
+            {
                 var resp = plugin.Handle(req);
                 Assert.That(resp, Is.Not.Null);
                 Assert.That(resp.StatusCode, Is.Not.EqualTo(200));
@@ -112,9 +115,11 @@ namespace BIF.SWE1.UnitTests
                 // No plugin will not handle unknown URL
             }
         }
+
         #endregion
 
         #region PluginManager
+
         [Test]
         public void pluginmanager_return_all_plugins()
         {
@@ -139,7 +144,7 @@ namespace BIF.SWE1.UnitTests
                 _typeMap.Add(t, true);
             }
         }
-        
+
         [Test]
         public void pluginmanager_contains_plugin_for_start_page()
         {
@@ -148,7 +153,7 @@ namespace BIF.SWE1.UnitTests
             Assert.That(obj, Is.Not.Null, "IUEB5.GetPluginManager returned null");
             var req = ueb.GetRequest(RequestHelper.GetValidRequestStream("/"));
             Assert.That(req, Is.Not.Null, "IUEB5.GetRequest returned null");
-            
+
             Assert.That(obj.Plugins, Is.Not.Null);
             IPlugin plugin = SelectPlugin(obj, req);
             Assert.That(plugin, Is.Not.Null);
@@ -173,6 +178,7 @@ namespace BIF.SWE1.UnitTests
             {
                 if (plugin is Ueb5TestPlugin) found = true;
             }
+
             Assert.That(found, Is.True, "New plugin was not found.");
         }
 
@@ -183,7 +189,8 @@ namespace BIF.SWE1.UnitTests
             Assert.That(obj, Is.Not.Null, "IUEB5.GetPluginManager returned null");
             Assert.That(obj.Plugins, Is.Not.Null);
 
-            Assert.That(() => obj.Add("BIF.SWE1.UnitTests.Ueb999TestPlugin, BIF-SWE1.UnitTests"), Throws.InstanceOf<Exception>());
+            Assert.That(() => obj.Add("BIF.SWE1.UnitTests.Ueb999TestPlugin, BIF-SWE1.UnitTests"),
+                Throws.InstanceOf<Exception>());
         }
 
         [Test]
@@ -193,11 +200,14 @@ namespace BIF.SWE1.UnitTests
             Assert.That(obj, Is.Not.Null, "IUEB5.GetPluginManager returned null");
             Assert.That(obj.Plugins, Is.Not.Null);
 
-            Assert.That(() => obj.Add("BIF.SWE1.UnitTests.Ueb5NoTestPlugin, BIF-SWE1.UnitTests"), Throws.InstanceOf<Exception>());
+            Assert.That(() => obj.Add("BIF.SWE1.UnitTests.Ueb5NoTestPlugin, BIF-SWE1.UnitTests"),
+                Throws.InstanceOf<Exception>());
         }
+
         #endregion
 
         #region Static File Plugin
+
         private const string static_file_content = "Hello World!";
 
         private void SetupStaticFilePlugin(Uebungen.UEB5 ueb, string fileName)
@@ -213,15 +223,16 @@ namespace BIF.SWE1.UnitTests
                 fs.SetLength(0);
                 sw.Write(static_file_content);
             }
-            
-            ueb.SetStatiFileFolder(folder);
+
+            ueb.SetStaticFileFolder(folder);
         }
+
         [Test]
         public void staticfileplugin_hello_world()
         {
             var ueb = CreateInstance();
             SetupStaticFilePlugin(ueb, "foo.txt");
-            
+
             var obj = ueb.GetStaticFilePlugin();
             Assert.That(obj, Is.Not.Null, "IUEB5.GetStaticFilePlugin returned null");
 
@@ -280,10 +291,11 @@ namespace BIF.SWE1.UnitTests
                 ms.Seek(0, SeekOrigin.Begin);
                 var sr = new StreamReader(ms);
                 string lastLine = null;
-                while(!sr.EndOfStream)
+                while (!sr.EndOfStream)
                 {
                     lastLine = sr.ReadLine();
                 }
+
                 Assert.That(lastLine, Is.EqualTo(static_file_content));
             }
         }
@@ -315,6 +327,7 @@ namespace BIF.SWE1.UnitTests
                 // static file plugin will not handle missing files.
             }
         }
+
         #endregion
     }
 }
