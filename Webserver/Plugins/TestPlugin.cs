@@ -45,9 +45,7 @@ namespace Webserver.Plugins
             };
 
             response.AddHeader("Connection", "close");
-            //response.SetContent("<html><body><h1>Hello World!</h1><p>testPlugin</p></body></html>");
-            response.SetContent(File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
-                Configuration.CurrentConfiguration.StaticFileDirectory, "index.html")));
+            response.SetContent("<html><body><h1>Hello World!</h1><p>testPlugin</p></body></html>");
             return response;
         }
     }
