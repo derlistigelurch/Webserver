@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Net;
+using System.Text;
 using BIF.SWE1.Interfaces;
 
 namespace Webserver.Plugins
@@ -25,9 +26,25 @@ namespace Webserver.Plugins
             response.AddHeader("Connection", "close");
 
             // Check if the request files exists
+            if (req.Url.Path.Equals("/"))
+            {
+                response.SetContent(File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
+                    Configuration.CurrentConfiguration.StaticFileDirectory, "index.html")));
+                response.ContentType = "text/html";
+                return response;
+            }
+
+            if (File.Exists(Path.Combine(System.Environment.CurrentDirectory, Path.Combine(req.Url.Segments))))
+            {
+                response.SetContent(
+                    File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
+                                                   Path.Combine(req.Url.Segments))));
+                return response;
+            }
+
             if (File.Exists(req.Url.Path))
             {
-                response.SetContent(File.ReadAllText(req.Url.Path));
+                response.SetContent(File.ReadAllBytes(req.Url.Path));
                 return response;
             }
 

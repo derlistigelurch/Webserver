@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using BIF.SWE1.Interfaces;
 using Webserver.Plugins;
@@ -17,6 +19,7 @@ namespace Webserver
             Add(new NaviPlugin());
             Add(new TempPlugin());
         }
+
 
         public IEnumerable<IPlugin> Plugins { get; } = new List<IPlugin>();
 
@@ -36,9 +39,14 @@ namespace Webserver
 
             Type type = Type.GetType(plugin);
             // throws an exception if type is empty or does not implement IPlugin
-            if (type == null || typeof(TestPlugin).GetInterfaces().Contains(typeof(IPlugin)) == false)
+            if (type == null)
             {
-                throw new InvalidOperationException("Plugin must implement IPlugin and must not be null!");
+                throw new ArgumentNullException("Plugin must not be null!");
+            }
+
+            if (typeof(TestPlugin).GetInterfaces().Contains(typeof(IPlugin)) == false)
+            {
+                throw new InvalidOperationException("Plugin must implement IPlugin!;");
             }
 
             // Add new plugin

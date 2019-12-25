@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using BIF.SWE1.Interfaces;
 using System.Text;
 using System.Threading;
+using Microsoft.Win32.SafeHandles;
 using Webserver.Plugins;
 
 namespace Webserver
@@ -14,20 +15,22 @@ namespace Webserver
     {
         static void Main(string[] args)
         {
+            // configure static file directory
+            Configuration.CurrentConfiguration.StaticFileDirectory = "static-files";
+            // create static file directory
+            Directory.CreateDirectory(Path.Combine(System.Environment.CurrentDirectory,
+                Configuration.CurrentConfiguration.StaticFileDirectory));
+
             var listener = new TcpListener(IPAddress.Any, 8081);
             listener.Start();
 
-            // Url url = new Url("/test");
             while (true)
             {
-                // var config = new Config() {StaticFileDirectory = "res"};
-                // Directory.CreateDirectory(config.StaticFileDirectory);
-                // Console.WriteLine(Path.Combine(config.StaticFileDirectory, "test.tx"));
-                // if (File.Exists(Path.Combine(config.StaticFileDirectory, "test.txt")))
-                // {
-                //     Console.Write("hallo Welt");
-                // }
-                Console.WriteLine("HelloWorld");
+                var socket = listener.AcceptSocket();
+                // var thread = new Thread(HandleRequest);
+                // thread.Start(socket);
+                // ThreadPool.QueueUserWorkItem(HandleRequest, socket);
+                HandleRequest(socket);
             }
         }
 
@@ -37,13 +40,29 @@ namespace Webserver
             var stream = new NetworkStream(socket);
 
             var request = new Request(stream);
+            var pluginManager = new PluginManager();
 
-            var testPlugin = new TestPlugin();
-            if (testPlugin.CanHandle(request) > 0.0f)
+            var canHandle = 0.0f;
+            IPlugin handlePlugin = null;
+
+            foreach (var plugin in pluginManager.Plugins)
             {
-                var pluginResponse = testPlugin.Handle(request);
-                // if(pluginResponse != null)
-                pluginResponse?.Send(stream);
+                if (canHandle < plugin.CanHandle(request))
+                {
+                    canHandle = plugin.CanHandle(request);
+                    handlePlugin = plugin;
+                }
+            }
+
+            if (handlePlugin != null)
+            {
+                var pluginResponse = handlePlugin.Handle(request);
+                pluginResponse.Send(stream);
+            }
+            else
+            {
+                var response = new Response {StatusCode = 404};
+                response.Send(stream);
             }
 
             socket.Close();

@@ -1,14 +1,20 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using BIF.SWE1.Interfaces;
 
-namespace  Webserver.Plugins
+namespace Webserver.Plugins
 {
     public class TestPlugin : IPlugin
     {
         public float CanHandle(IRequest req)
         {
+            if (req.Url == null)
+            {
+                return 0.0f;
+            }
+
             if (req.Url.RawUrl.Equals("/"))
             {
                 return 1.0f;
@@ -39,8 +45,9 @@ namespace  Webserver.Plugins
             };
 
             response.AddHeader("Connection", "close");
-            response.SetContent("<html><body><h1>Hello World!</h1><p>testPlugin</p></body></html>");
-
+            //response.SetContent("<html><body><h1>Hello World!</h1><p>testPlugin</p></body></html>");
+            response.SetContent(File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
+                Configuration.CurrentConfiguration.StaticFileDirectory, "index.html")));
             return response;
         }
     }
