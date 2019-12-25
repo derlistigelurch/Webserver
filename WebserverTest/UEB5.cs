@@ -166,6 +166,9 @@ namespace BIF.SWE1.UnitTests
             Assert.That(obj.Plugins, Is.Not.Null);
  
             int count = obj.Plugins.Count();
+            // wörks
+            // obj.Add(new Ueb5TestPlugin());
+            // not working ??
             obj.Add("BIF.SWE1.UnitTests.Ueb5TestPlugin, BIF-SWE1.UnitTests");
             Assert.That(obj.Plugins.Count(), Is.EqualTo(count + 1));
             bool found = false;

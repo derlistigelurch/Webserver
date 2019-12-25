@@ -13,6 +13,7 @@ namespace Webserver
     {
         public PluginManager()
         {
+            // Add("Webserver.Plugins.TestPlugin");
             Add(new TestPlugin());
             Add(new StaticFilePlugin());
             Add(new LowerPlugin());
