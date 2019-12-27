@@ -30,7 +30,7 @@ namespace Webserver.Plugins
             {
                 response.SetContent(File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
                     Configuration.CurrentConfiguration.StaticFileDirectory, "index.html")));
-                response.ContentType = "text/html";
+                response.ContentType = getMimeType(req.Url.Extension);
                 return response;
             }
 
@@ -38,18 +38,39 @@ namespace Webserver.Plugins
             {
                 response.SetContent(
                     File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
-                                                   Path.Combine(req.Url.Segments))));
+                        Path.Combine(req.Url.Segments))));
+                response.ContentType = getMimeType(req.Url.Extension);
                 return response;
             }
 
             if (File.Exists(req.Url.Path))
             {
                 response.SetContent(File.ReadAllBytes(req.Url.Path));
+                response.ContentType = getMimeType(req.Url.Extension);
                 return response;
             }
 
             response.StatusCode = 404;
             return response;
+        }
+
+        private string getMimeType(string extension)
+        {
+            switch (extension)
+            {
+                case "html":
+                    return "text/html";
+                case "css":
+                    return "text/css";
+                case "js":
+                    return "text/javascript";
+                case "ico":
+                    return "image/x-icon";
+                case "txt":
+                    return "text/plain";
+                default:
+                    return "";
+            }
         }
     }
 }

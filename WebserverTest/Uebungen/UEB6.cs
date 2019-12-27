@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BIF.SWE1.Interfaces;
+using Webserver;
+using Webserver.Plugins;
 
 namespace Uebungen
 {
@@ -14,12 +16,12 @@ namespace Uebungen
 
         public IPluginManager GetPluginManager()
         {
-            throw new NotImplementedException();
+            return new PluginManager();
         }
 
         public IRequest GetRequest(System.IO.Stream network)
         {
-            throw new NotImplementedException();
+            return new Request(network);
         }
 
         public string GetNaviUrl()
@@ -29,12 +31,12 @@ namespace Uebungen
 
         public IPlugin GetNavigationPlugin()
         {
-            throw new NotImplementedException();
+            return new NaviPlugin();
         }
 
         public IPlugin GetTemperaturePlugin()
         {
-            throw new NotImplementedException();
+            return new TempPlugin();
         }
 
         public string GetTemperatureRestUrl(DateTime from, DateTime until)
@@ -49,12 +51,12 @@ namespace Uebungen
 
         public IPlugin GetToLowerPlugin()
         {
-            throw new NotImplementedException();
+            return new LowerPlugin();
         }
 
         public string GetToLowerUrl()
         {
-            throw new NotImplementedException();
+            return "/static-files/toLower.html";
         }
     }
 }
