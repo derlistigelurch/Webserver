@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 using BIF.SWE1.Interfaces;
 
 namespace Webserver.Plugins
@@ -38,12 +40,46 @@ namespace Webserver.Plugins
                 req.ContentString.Split('&').First().Substring(req.ContentString.IndexOf('=') + 1);
             if (string.IsNullOrEmpty(realContentString))
             {
-                response.SetContent("Bitte geben Sie einen Text ein");
-                return response;
+                response.SetContent(CreateToLowerHtml("Bitte geben Sie einen Text ein"));
+            }
+            else
+            {
+                response.SetContent(CreateToLowerHtml(realContentString.ToLower()));
             }
 
-            response.SetContent(realContentString.ToLower());
+            response.ContentType = "text/html";
             return response;
+        }
+
+        private string CreateToLowerHtml(string result)
+        {
+            XDocument xDocument = new XDocument(
+                new XDocumentType("html", null, null, null),
+                new XElement("html",
+                    new XAttribute("lang", "de"),
+                    new XElement("head"),
+                    new XElement("title", "ToLower"),
+                    new XElement("body",
+                        new XElement("form",
+                            new XAttribute("method", "post"),
+                            new XElement("label",
+                                new XAttribute("for", "lower"), "Input: ",
+                                new XElement("input",
+                                    new XAttribute("type", "text"),
+                                    new XAttribute("id", "lower"),
+                                    new XAttribute("name", "lower")
+                                )),
+                            new XElement("button",
+                                new XAttribute("type", "submit"),
+                                new XAttribute("name", "submit"), "Submit"
+                            )
+                        ),
+                        new XElement("p", result)
+                    )
+                )
+            );
+
+            return xDocument.ToString();
         }
     }
 }
