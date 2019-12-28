@@ -41,12 +41,25 @@ namespace Uebungen
 
         public string GetTemperatureRestUrl(DateTime from, DateTime until)
         {
-            throw new NotImplementedException();
+            // /static-files/temp.html?from=2019-12-05&until=2019-12-26&type=rest&GetTemperature=
+            StringBuilder result = new StringBuilder();
+            result.Append("/static-files/temp.html?")
+                .Append("from=").Append(from.ToString("yyyy-MM-dd")).Append("&")
+                .Append("until=").Append(until.ToString("yyyy-MM-dd")).Append("&")
+                .Append("type=rest&")
+                .Append("GetTemperature=");
+            return result.ToString();
         }
 
         public string GetTemperatureUrl(DateTime from, DateTime until)
         {
-            throw new NotImplementedException();
+            //return "/static-files/temp.html?from=" + from + "&until=" + until + "&GetTemperature=";
+            StringBuilder result = new StringBuilder();
+            result.Append("/static-files/temp.html?")
+                .Append("from=").Append(from.ToString("yyyy-MM-dd")).Append("&")
+                .Append("until=").Append(until.ToString("yyyy-MM-dd")).Append("&")
+                .Append("GetTemperature=");
+            return result.ToString();
         }
 
         public IPlugin GetToLowerPlugin()

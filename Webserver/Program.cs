@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading;
 using Microsoft.Win32.SafeHandles;
 using Webserver.Plugins;
+using System.Data.OleDb;
+using Webserver.Database;
 
 namespace Webserver
 {
@@ -15,6 +17,25 @@ namespace Webserver
     {
         static void Main(string[] args)
         {
+            // insert 10000 rows test data
+            // databaseConnection.InsertTestData();
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            // read sensor data every 5 minutes
+            // databaseConnection.ReadSensorData();
+            // databaseConnection.SelectTemperatureRange(new DateTime(2014, 1, 1), new DateTime(2014, 1, 2));
+            // Console.WriteLine("-----------------------------------");
+            // databaseConnection.SelectTemperatureExact(new DateTime(2014, 1, 1));
+            // Console.WriteLine("-----------------------------------");
+            // databaseConnection.SelectTemperatureAll();
+            StringBuilder result = new StringBuilder();
+            result.Append("static-files/temp.html?");
+            result.Append("from=").Append(new DateTime(2014, 1, 1).ToString("yyyy-MM-dd")).Append("&");
+            result.Append("until=").Append(new DateTime(2014, 1, 2).ToString("yyyy-MM-dd")).Append("&");
+            result.Append("GetTemperature=");
+            
+            Console.WriteLine(result);
+            
+
             // configure static file directory
             Configuration.CurrentConfiguration.StaticFileDirectory = "static-files";
             // create static file directory

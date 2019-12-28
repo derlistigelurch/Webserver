@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
@@ -59,6 +60,11 @@ namespace Webserver.Plugins
                     new XAttribute("lang", "de"),
                     new XElement("head"),
                     new XElement("title", "ToLower"),
+                    new XElement("link",
+                        new XAttribute("rel", "stylesheet"),
+                        new XAttribute("type", "text/css"),
+                        new XAttribute("href", "/static-files/style.css")
+                    ),
                     new XElement("body",
                         new XElement("form",
                             new XAttribute("method", "post"),
@@ -74,7 +80,10 @@ namespace Webserver.Plugins
                                 new XAttribute("name", "submit"), "Submit"
                             )
                         ),
-                        new XElement("p", result)
+                        new XElement("p", result),
+                        new XElement("a",
+                            new XAttribute("href", "/index.html")
+                        ), "index.html"
                     )
                 )
             );
