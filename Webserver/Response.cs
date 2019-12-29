@@ -6,10 +6,13 @@ using BIF.SWE1.Interfaces;
 
 namespace Webserver
 {
+    /// <summary>
+    /// Creates a new HTTP response.
+    /// </summary>
     public class Response : IResponse
     {
         /// <summary>
-        /// Creates a new HTTP response.
+        /// CCreates a new HTTP response
         /// </summary>
         public Response()
         {

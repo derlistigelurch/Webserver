@@ -11,6 +11,10 @@ namespace Webserver
     /// </summary>
     public class PluginManager : IPluginManager
     {
+        /// <summary>
+        /// Creates a new object to manage all plugins.
+        /// Dynamically loads plugins.
+        /// </summary>
         public PluginManager()
         {
             // Add("Webserver.Plugins.TestPlugin");

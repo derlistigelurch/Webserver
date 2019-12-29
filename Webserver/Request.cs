@@ -5,6 +5,9 @@ using BIF.SWE1.Interfaces;
 
 namespace Webserver
 {
+    /// <summary>
+    /// Parses an incoming HTTP Request.
+    /// </summary>
     public class Request : IRequest
     {
         /// <summary>

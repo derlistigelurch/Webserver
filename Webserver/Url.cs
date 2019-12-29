@@ -4,6 +4,9 @@ using BIF.SWE1.Interfaces;
 
 namespace Webserver
 {
+    /// <summary>
+    /// Creates new URL Object from a given URL
+    /// </summary>
     public class Url : IUrl
     {
         /// <summary>

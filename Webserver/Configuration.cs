@@ -1,11 +1,14 @@
 namespace Webserver
 {
+    /// <summary>
+    /// Saves Configurationdata (e.g. StaticFileDirectory).
+    /// </summary>
     public class Configuration
     {
         private static Configuration _currentConfiguration;
 
         /// <summary>
-        /// Create a new static Configuration object, to store data
+        /// Creates a new static Configuration object.
         /// </summary>
         public static Configuration CurrentConfiguration
         {
