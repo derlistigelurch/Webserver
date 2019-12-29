@@ -9,14 +9,14 @@ namespace Webserver.Database
 {
     public class DatabaseConnection
     {
-        public void testConnection()
+        public string TestConnection()
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
                     connection.Open();
-                    Console.WriteLine(connection.PostgreSqlVersion);
+                    return connection.ServerVersion;
                 }
                 catch (NpgsqlException npgsqlException)
                 {
@@ -135,7 +135,7 @@ namespace Webserver.Database
             }
         }*/
 
-        private void InsertTemperature(DateTime dateTime, double temperature)
+        public void InsertTemperature(DateTime dateTime, double temperature)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(this.ConnectionString))
             {
@@ -193,15 +193,15 @@ namespace Webserver.Database
                 (e) =>
                 {
                     connection.InsertTemperature(DateTime.Now, random.NextDouble() - 0.5 * 100);
-                    Console.WriteLine("insert");
+                    // Console.WriteLine("insert");
                 },
                 null, startTimeSpan, periodTimeSpan);
         }
 
-        private string ConnectionString { get; } = "Server=127.0.0.1;" +
-                                                   "Port=5432;" +
-                                                   "Database=postgres;" +
-                                                   "User Id=temp;" +
-                                                   "Password=temp;";
+        public string ConnectionString { get; } = "Server=127.0.0.1;" +
+                                                  "Port=5432;" +
+                                                  "Database=postgres;" +
+                                                  "User Id=temp;" +
+                                                  "Password=temp;";
     }
 }

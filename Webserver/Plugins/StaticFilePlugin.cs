@@ -30,7 +30,7 @@ namespace Webserver.Plugins
             {
                 response.SetContent(File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
                     Configuration.CurrentConfiguration.StaticFileDirectory, "index.html")));
-                response.ContentType = getMimeType(req.Url.Extension);
+                response.ContentType = GetMimeType(req.Url.Extension);
                 return response;
             }
 
@@ -39,14 +39,14 @@ namespace Webserver.Plugins
                 response.SetContent(
                     File.ReadAllBytes(Path.Combine(System.Environment.CurrentDirectory,
                         Path.Combine(req.Url.Segments))));
-                response.ContentType = getMimeType(req.Url.Extension);
+                response.ContentType = GetMimeType(req.Url.Extension);
                 return response;
             }
 
             if (File.Exists(req.Url.Path))
             {
                 response.SetContent(File.ReadAllBytes(req.Url.Path));
-                response.ContentType = getMimeType(req.Url.Extension);
+                response.ContentType = GetMimeType(req.Url.Extension);
                 return response;
             }
 
@@ -54,7 +54,7 @@ namespace Webserver.Plugins
             return response;
         }
 
-        private string getMimeType(string extension)
+        public string GetMimeType(string extension)
         {
             switch (extension)
             {
@@ -68,6 +68,8 @@ namespace Webserver.Plugins
                     return "image/x-icon";
                 case "txt":
                     return "text/plain";
+                case "json":
+                    return "application/json";
                 default:
                     return "";
             }

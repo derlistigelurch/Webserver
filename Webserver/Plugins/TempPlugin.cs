@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Threading;
 using System.Xml.Linq;
@@ -28,37 +29,21 @@ namespace Webserver.Plugins
 
             if (req.Url.Parameter.ContainsKey("until") && req.Url.Parameter.ContainsKey("from"))
             {
-                try
-                {
-                    tempData = databaseConnection.SelectTemperatureRange(
-                        DateTime.Parse(req.Url.Parameter["from"]),
-                        DateTime.Parse(req.Url.Parameter["until"]));
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine(e.Message);
-                    throw;
-                }
+                tempData = databaseConnection.SelectTemperatureRange(
+                    this.ParseToDateTime(req.Url.Parameter["from"]),
+                    this.ParseToDateTime(req.Url.Parameter["until"]));
             }
 
             if (req.Url.Parameter.ContainsKey("date"))
             {
-                try
-                {
-                    tempData = databaseConnection.SelectTemperatureExact(
-                        DateTime.Parse(req.Url.Parameter["date"]));
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
+                tempData = databaseConnection.SelectTemperatureExact(
+                    this.ParseToDateTime(req.Url.Parameter["date"]));
             }
 
             if (req.Url.Parameter.ContainsKey("type") && req.Url.Parameter["type"].Equals("rest"))
             {
                 response.ContentType = "text/xml";
-                response.SetContent(CreateRestNaviHtml(tempData));
+                response.SetContent(CreateRestNaviXml(tempData));
             }
             else
             {
@@ -69,7 +54,7 @@ namespace Webserver.Plugins
             return response;
         }
 
-        private string CreateRestNaviHtml(Dictionary<string, double> data)
+        public string CreateRestNaviXml(Dictionary<string, double> data)
         {
             // Setup base structure:
             var xDocument = new XDocument();
@@ -77,18 +62,18 @@ namespace Webserver.Plugins
             xDocument.Add(root);
 
             // Generate the rest of the document based on runtime data:
-            foreach (var item in data)
+            foreach (var (key, value) in data)
             {
                 var temp = new XElement("data");
-                temp.Add(new XElement("date", item.Key));
-                temp.Add(new XElement("temp", item.Value));
+                temp.Add(new XElement("date", key));
+                temp.Add(new XElement("temp", value));
                 root.Add(temp);
             }
 
             return xDocument.ToString();
         }
 
-        private string CreateNaviHtml(Dictionary<string, double> data)
+        public string CreateNaviHtml(Dictionary<string, double> data)
         {
             // Setup base structure:
             XDocument xDocument = new XDocument();
@@ -111,22 +96,30 @@ namespace Webserver.Plugins
                     new XAttribute("href", "/index.html")
                 ), "index.html"
             );
-
-            foreach (var item in data)
+            foreach (var (key, value) in data)
             {
                 var temp = new XElement("tr",
-                    new XElement("td", item.Key),
-                    new XElement("td", item.Value)
+                    new XElement("td", key),
+                    new XElement("td", value)
                 );
                 table.Add(temp);
             }
-
 
             body.Add(table);
             head.Add(body);
             xDocument.Add(head);
 
             return xDocument.ToString();
+        }
+
+        public DateTime ParseToDateTime(string s)
+        {
+            if (DateTime.TryParse(s, out DateTime result))
+            {
+                return DateTime.Parse(s);
+            }
+
+            throw new FormatException("Unable to Parse string to DateTime");
         }
     }
 }

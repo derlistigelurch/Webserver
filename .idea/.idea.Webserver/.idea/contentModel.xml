@@ -45,6 +45,7 @@
       <e p="Webserver.sln" t="IncludeFlat" />
       <e p="WebserverTest" t="IncludeRecursive">
         <e p="AbstractTestFixture.cs" t="Include" />
+        <e p="CustomTests.cs" t="Include" />
         <e p="RequestHelper.cs" t="Include" />
         <e p="UEB1.cs" t="Include" />
         <e p="UEB2.cs" t="Include" />
@@ -53,6 +54,7 @@
         <e p="UEB5.cs" t="Include" />
         <e p="UEB6.cs" t="Include" />
         <e p="Uebungen" t="Include">
+          <e p="CustomTests.cs" t="Include" />
           <e p="UEB1.cs" t="Include" />
           <e p="UEB2.cs" t="Include" />
           <e p="UEB3.cs" t="Include" />
@@ -60,7 +62,6 @@
           <e p="UEB5.cs" t="Include" />
           <e p="UEB6.cs" t="Include" />
         </e>
-        <e p="UnitTest1.cs" t="Include" />
         <e p="WebserverTest.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">

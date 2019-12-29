@@ -21,20 +21,7 @@ namespace Webserver
             // databaseConnection.InsertTestData();
             DatabaseConnection databaseConnection = new DatabaseConnection();
             // read sensor data every 5 minutes
-            // databaseConnection.ReadSensorData();
-            // databaseConnection.SelectTemperatureRange(new DateTime(2014, 1, 1), new DateTime(2014, 1, 2));
-            // Console.WriteLine("-----------------------------------");
-            // databaseConnection.SelectTemperatureExact(new DateTime(2014, 1, 1));
-            // Console.WriteLine("-----------------------------------");
-            // databaseConnection.SelectTemperatureAll();
-            StringBuilder result = new StringBuilder();
-            result.Append("static-files/temp.html?");
-            result.Append("from=").Append(new DateTime(2014, 1, 1).ToString("yyyy-MM-dd")).Append("&");
-            result.Append("until=").Append(new DateTime(2014, 1, 2).ToString("yyyy-MM-dd")).Append("&");
-            result.Append("GetTemperature=");
-            
-            Console.WriteLine(result);
-            
+            databaseConnection.ReadSensorData();
 
             // configure static file directory
             Configuration.CurrentConfiguration.StaticFileDirectory = "static-files";
@@ -50,8 +37,8 @@ namespace Webserver
                 var socket = listener.AcceptSocket();
                 // var thread = new Thread(HandleRequest);
                 // thread.Start(socket);
-                // ThreadPool.QueueUserWorkItem(HandleRequest, socket);
-                HandleRequest(socket);
+                ThreadPool.QueueUserWorkItem(HandleRequest, socket);
+                // HandleRequest(socket);
             }
         }
 
