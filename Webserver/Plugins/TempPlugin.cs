@@ -134,12 +134,12 @@ namespace Webserver.Plugins
         /// </summary>
         /// <param name="s"></param>
         /// <returns>A new Datetime object.</returns>
-        /// <exception cref="FormatException"></exception>
+        /// <exception cref="FormatException">Throws FormatException if string is not valid.</exception>
         public DateTime ParseToDateTime(string s)
         {
             if (DateTime.TryParse(s, out var result))
             {
-                return DateTime.Parse(s);
+                return result;
             }
 
             throw new FormatException("Unable to Parse string to DateTime");

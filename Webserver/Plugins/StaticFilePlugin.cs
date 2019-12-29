@@ -81,6 +81,8 @@ namespace Webserver.Plugins
                     return "text/plain";
                 case "json":
                     return "application/json";
+                case "png":
+                    return "image/png";
                 default:
                     return "";
             }

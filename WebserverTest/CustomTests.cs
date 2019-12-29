@@ -192,7 +192,13 @@ namespace BIF.SWE1.UnitTests
             var obj = CreateInstance().GetStaticFilePlugin().GetMimeType("json");
             Assert.That(obj, Is.EqualTo("application/json"));
         }
-
+        
+        [Test]
+        public void staticfileplugin_set_mimetype_png()
+        {
+            var obj = CreateInstance().GetStaticFilePlugin().GetMimeType("png");
+            Assert.That(obj, Is.EqualTo("image/png"));
+        }
         #endregion
     }
 }
