@@ -22,7 +22,7 @@ namespace BIF.SWE1.Interfaces
         /// Returns a URL object of the request. Never returns null.
         /// </summary>
         IUrl Url { get; }
-        
+
         /// <summary>
         /// Returns the request header. Never returns null. All keys must be lower case.
         /// </summary>

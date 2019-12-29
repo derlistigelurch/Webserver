@@ -1,28 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Net;
-using System.Text;
 using BIF.SWE1.Interfaces;
 
 namespace Webserver.Plugins
 {
+    /// <summary>
+    /// A Plugin which loads static files from a known directory.
+    /// </summary>
     public class StaticFilePlugin : IPlugin
     {
+        /// <summary>
+        /// Returns a score between 0 and 1 to indicate that the plugin is willing to handle the request. The plugin with the highest score will execute the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A score between 0 and 1</returns>
         public float CanHandle(IRequest req)
         {
-            if (req?.Url == null)
-            {
-                return 0.0f;
-            }
-
-            return 0.5f;
+            // req? = if(req == null)
+            return req?.Url == null
+                ? 0.0f
+                : 0.5f;
         }
 
+        /// <summary>
+        /// Called by the server when the plugin should handle the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A new response object.</returns>
         public IResponse Handle(IRequest req)
         {
-            Response response = new Response {StatusCode = 200};
+            var response = new Response {StatusCode = 200};
             response.AddHeader("Connection", "close");
 
             // Check if the request files exists
@@ -54,6 +60,11 @@ namespace Webserver.Plugins
             return response;
         }
 
+        /// <summary>
+        /// Returns the correct Mimetype for a specific extension, never return null.
+        /// </summary>
+        /// <param name="extension"></param>
+        /// <returns>Correct Mime Type of a file.</returns>
         public string GetMimeType(string extension)
         {
             switch (extension)

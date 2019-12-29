@@ -1,14 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using BIF.SWE1.Interfaces;
-using System.Text;
 using System.Threading;
-using Microsoft.Win32.SafeHandles;
-using Webserver.Plugins;
-using System.Data.OleDb;
 using Webserver.Database;
 
 namespace Webserver
@@ -19,7 +13,7 @@ namespace Webserver
         {
             // insert 10000 rows test data
             // databaseConnection.InsertTestData();
-            DatabaseConnection databaseConnection = new DatabaseConnection();
+            var databaseConnection = new DatabaseConnection();
             // read sensor data every 5 minutes
             databaseConnection.ReadSensorData();
 
@@ -42,6 +36,10 @@ namespace Webserver
             }
         }
 
+        /// <summary>
+        /// Handle incomming requests.
+        /// </summary>
+        /// <param name="clientSocket"></param>
         private static void HandleRequest(object clientSocket)
         {
             var socket = (Socket) clientSocket;

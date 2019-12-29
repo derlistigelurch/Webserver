@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using BIF.SWE1.Interfaces;
 using Webserver.Plugins;
 
 namespace Webserver
 {
+    /// <summary>
+    /// Manages all Plugins.
+    /// </summary>
     public class PluginManager : IPluginManager
     {
         public PluginManager()
@@ -21,14 +21,27 @@ namespace Webserver
             Add(new TempPlugin());
         }
 
-
+        /// <summary>
+        /// Returns a list of all plugins. Never returns null.
+        /// </summary>
         public IEnumerable<IPlugin> Plugins { get; } = new List<IPlugin>();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="plugin"></param>
         public void Add(IPlugin plugin)
         {
             ((List<IPlugin>) this.Plugins).Add(plugin);
         }
 
+        /// <summary>
+        /// Adds a new plugin by type name. If the plugin was already added, nothing will happen.
+        /// Throws an exeption, when the type cannot be resoled or the type does not implement IPlugin.
+        /// </summary>
+        /// <param name="plugin"></param>
+        /// <exception cref="ArgumentNullException">Throws an ArgumentNullException if plugin is null.</exception>
+        /// <exception cref="InvalidOperationException">Throws an InvalidOperationException if plugin does not implement IPlugin</exception>
         public void Add(string plugin)
         {
             // valid string: Webserver.TestPlugin
@@ -38,13 +51,14 @@ namespace Webserver
                 throw new ArgumentNullException(plugin, "Plugin must not be null!");
             }
 
-            Type type = Type.GetType(plugin);
-            // throws an exception if type is empty or does not implement IPlugin
+            var type = Type.GetType(plugin);
+            // throws an exception if type is empty
             if (type == null)
             {
                 throw new ArgumentNullException("Plugin must not be null!");
             }
 
+            // throws exception if plugin does not implement IPlugin
             if (typeof(TestPlugin).GetInterfaces().Contains(typeof(IPlugin)) == false)
             {
                 throw new InvalidOperationException("Plugin must implement IPlugin!;");
@@ -54,6 +68,9 @@ namespace Webserver
             Add((IPlugin) Activator.CreateInstance(type));
         }
 
+        /// <summary>
+        /// Clears all plugins
+        /// </summary>
         public void Clear()
         {
             // not working

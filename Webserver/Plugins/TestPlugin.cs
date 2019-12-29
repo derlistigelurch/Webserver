@@ -1,13 +1,17 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
 using BIF.SWE1.Interfaces;
 
 namespace Webserver.Plugins
 {
+    /// <summary>
+    /// A Plugin which is used to test the functionality of other classes
+    /// </summary>
     public class TestPlugin : IPlugin
     {
+        /// <summary>
+        /// Returns a score between 0 and 1 to indicate that the plugin is willing to handle the request. The plugin with the highest score will execute the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A score between 0 and 1</returns>
         public float CanHandle(IRequest req)
         {
             if (req.Url == null)
@@ -36,9 +40,14 @@ namespace Webserver.Plugins
             return 0.0f;
         }
 
+        /// <summary>
+        /// Called by the server when the plugin should handle the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A new response object.</returns>
         public IResponse Handle(IRequest req)
         {
-            Response response = new Response
+            var response = new Response
             {
                 StatusCode = 200,
                 ContentType = "text/html"

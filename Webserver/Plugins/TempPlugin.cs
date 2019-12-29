@@ -1,30 +1,37 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
-using System.Linq;
-using System.Threading;
 using System.Xml.Linq;
 using BIF.SWE1.Interfaces;
 using Webserver.Database;
 
 namespace Webserver.Plugins
 {
+    /// <summary>
+    /// A plugin which handles sensor data.
+    /// </summary>
     public class TempPlugin : IPlugin
     {
+        /// <summary>
+        /// Returns a score between 0 and 1 to indicate that the plugin is willing to handle the request. The plugin with the highest score will execute the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A score between 0 and 1</returns>
         public float CanHandle(IRequest req)
         {
-            if (req?.Url != null && req.Url.Parameter.ContainsKey("GetTemperature"))
-            {
-                return 1.0f;
-            }
-
-            return 0.0f;
+            return req?.Url != null && req.Url.Parameter.ContainsKey("GetTemperature")
+                ? 1.0f
+                : 0.0f;
         }
 
+        /// <summary>
+        /// Called by the server when the plugin should handle the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A new response object.</returns>
         public IResponse Handle(IRequest req)
         {
-            Response response = new Response() {StatusCode = 200};
-            DatabaseConnection databaseConnection = new DatabaseConnection();
+            var response = new Response() {StatusCode = 200};
+            var databaseConnection = new DatabaseConnection();
             Dictionary<string, double> tempData = null;
 
             if (req.Url.Parameter.ContainsKey("until") && req.Url.Parameter.ContainsKey("from"))
@@ -54,6 +61,11 @@ namespace Webserver.Plugins
             return response;
         }
 
+        /// <summary>
+        /// Creates a valid XML object.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>A valid string which contains a valid XML object</returns>
         public string CreateRestNaviXml(Dictionary<string, double> data)
         {
             // Setup base structure:
@@ -73,10 +85,15 @@ namespace Webserver.Plugins
             return xDocument.ToString();
         }
 
+        /// <summary>
+        /// Create a valid HTML site.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>A valid HTML site as string.</returns>
         public string CreateNaviHtml(Dictionary<string, double> data)
         {
             // Setup base structure:
-            XDocument xDocument = new XDocument();
+            var xDocument = new XDocument();
             var head = new XElement("html",
                 new XAttribute("lang", "de"),
                 new XElement("head",
@@ -112,9 +129,15 @@ namespace Webserver.Plugins
             return xDocument.ToString();
         }
 
+        /// <summary>
+        /// Parses a given string to a valid Datetime object, throws FormatException if string is not valid.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns>A new Datetime object.</returns>
+        /// <exception cref="FormatException"></exception>
         public DateTime ParseToDateTime(string s)
         {
-            if (DateTime.TryParse(s, out DateTime result))
+            if (DateTime.TryParse(s, out var result))
             {
                 return DateTime.Parse(s);
             }

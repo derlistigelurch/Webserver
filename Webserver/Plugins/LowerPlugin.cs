@@ -1,15 +1,19 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Xml;
 using System.Xml.Linq;
 using BIF.SWE1.Interfaces;
 
 namespace Webserver.Plugins
 {
+    /// <summary>
+    /// A plugin which lowers text.
+    /// </summary>
     public class LowerPlugin : IPlugin
     {
+        /// <summary>
+        /// Returns a score between 0 and 1 to indicate that the plugin is willing to handle the request. The plugin with the highest score will execute the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A score between 0 and 1</returns>
         public float CanHandle(IRequest req)
         {
             // POST /test HTTP/1.1
@@ -18,43 +22,45 @@ namespace Webserver.Plugins
             // Content-Length: 15
             //
             // lower=halloWelt <-- CONTENT
-            if (string.IsNullOrEmpty(req.ContentString) == false)
-            {
-                return 1.0f;
-            }
-
-            return 0.0f;
+            return string.IsNullOrEmpty(req.ContentString) == false
+                ? 1.0f
+                : 0.0f;
         }
 
+        /// <summary>
+        /// Called by the server when the plugin should handle the request.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns>A new response object.</returns>
         public IResponse Handle(IRequest req)
         {
             // Post content string
             // lower=halloWelt
             // hallowelt
 
-            Response response = new Response {StatusCode = 200};
+            var response = new Response {StatusCode = 200};
             response.AddHeader("Connection", "close");
 
             // get content from contentstring (lower=halloWelt&submit=)
             // realContentString = halloWelt
-            string realContentString =
-                req.ContentString.Split('&').First().Substring(req.ContentString.IndexOf('=') + 1);
-            if (string.IsNullOrEmpty(realContentString))
-            {
-                response.SetContent(CreateToLowerHtml("Bitte geben Sie einen Text ein"));
-            }
-            else
-            {
-                response.SetContent(CreateToLowerHtml(realContentString.ToLower()));
-            }
+            var realContentString = req.ContentString.Split('&').First().Substring(req.ContentString.IndexOf('=') + 1);
+
+            response.SetContent(string.IsNullOrEmpty(realContentString)
+                ? CreateToLowerHtml("Bitte geben Sie einen Text ein")
+                : CreateToLowerHtml(realContentString.ToLower()));
 
             response.ContentType = "text/html";
             return response;
         }
 
+        /// <summary>
+        /// Creates a valid HTML site.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns>A valid HTML site</returns>
         private string CreateToLowerHtml(string result)
         {
-            XDocument xDocument = new XDocument(
+            var xDocument = new XDocument(
                 new XDocumentType("html", null, null, null),
                 new XElement("html",
                     new XAttribute("lang", "de"),

@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Npgsql;
 using NUnit.Framework;
-using Webserver.Database;
 
 namespace BIF.SWE1.UnitTests
 {
@@ -159,35 +157,35 @@ namespace BIF.SWE1.UnitTests
             var obj = CreateInstance().GetStaticFilePlugin().GetMimeType("html");
             Assert.That(obj, Is.EqualTo("text/html"));
         }
-        
+
         [Test]
         public void staticfileplugin_set_mimetype_css()
         {
             var obj = CreateInstance().GetStaticFilePlugin().GetMimeType("css");
             Assert.That(obj, Is.EqualTo("text/css"));
         }
-        
+
         [Test]
         public void staticfileplugin_set_mimetype_js()
         {
             var obj = CreateInstance().GetStaticFilePlugin().GetMimeType("js");
             Assert.That(obj, Is.EqualTo("text/javascript"));
         }
-        
+
         [Test]
         public void staticfileplugin_set_mimetype_ico()
         {
             var obj = CreateInstance().GetStaticFilePlugin().GetMimeType("ico");
             Assert.That(obj, Is.EqualTo("image/x-icon"));
         }
-        
+
         [Test]
         public void staticfileplugin_set_mimetype_txt()
         {
             var obj = CreateInstance().GetStaticFilePlugin().GetMimeType("txt");
             Assert.That(obj, Is.EqualTo("text/plain"));
         }
-        
+
         [Test]
         public void staticfileplugin_set_mimetype_json()
         {
