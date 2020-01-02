@@ -1,4 +1,3 @@
 bin/
 obj/
 /packages/
-/Webserver/bin/Debug/netcoreapp2.2/static-files/dok/
