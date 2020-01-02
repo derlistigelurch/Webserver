@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['handle_94',['Handle',['../interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin.html#a68009e206460e69b38692b3dd9fe632e',1,'BIF.SWE1.Interfaces.IPlugin.Handle()'],['../class_webserver_1_1_plugins_1_1_lower_plugin.html#ac39a6de623546c80410d9fd87a105259',1,'Webserver.Plugins.LowerPlugin.Handle()'],['../class_webserver_1_1_plugins_1_1_navi_plugin.html#afb857acc0618bbd95b9eb7aedc820849',1,'Webserver.Plugins.NaviPlugin.Handle()'],['../class_webserver_1_1_plugins_1_1_static_file_plugin.html#ad404f8ad44aa4d3fcc232cc42098743d',1,'Webserver.Plugins.StaticFilePlugin.Handle()'],['../class_webserver_1_1_plugins_1_1_temp_plugin.html#a67ad85bc220797d1c2fe454f58d80397',1,'Webserver.Plugins.TempPlugin.Handle()'],['../class_webserver_1_1_plugins_1_1_test_plugin.html#ae6575e2a14f8e92847ff1edcdeb0e070',1,'Webserver.Plugins.TestPlugin.Handle()']]]
+];

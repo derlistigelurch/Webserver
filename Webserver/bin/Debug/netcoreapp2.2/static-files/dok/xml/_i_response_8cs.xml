@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="_i_response_8cs" kind="file" language="C#">
+    <compoundname>IResponse.cs</compoundname>
+    <innerclass refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response" prot="public">BIF::SWE1::Interfaces::IResponse</innerclass>
+    <innernamespace refid="namespace_b_i_f">BIF</innernamespace>
+    <innernamespace refid="namespace_b_i_f_1_1_s_w_e1">BIF::SWE1</innernamespace>
+    <innernamespace refid="namespace_b_i_f_1_1_s_w_e1_1_1_interfaces">BIF::SWE1::Interfaces</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Collections.Generic;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.IO;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Linq;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Text;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_b_i_f_1_1_s_w_e1_1_1_interfaces" kindref="compound">BIF.SWE1.Interfaces</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9" refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response" kindref="compound">IResponse</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IDictionary&lt;string,<sp/>string&gt;<sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a53ed3e230b806737e7d7455f6a4edfeb" kindref="member">Headers</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a18bd9ae999e0d67c8176177ec4691e8d" kindref="member">ContentLength</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a3980235748927b04f07152cc4f454c6c" kindref="member">ContentType</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1ae6712b88ded8b19fcd81c8bd5dbfa1ad" kindref="member">StatusCode</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1ae440fa5dcb49d1ee69eb3bf0f4979868" kindref="member">Status</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a21658427220ef19145fe93cd88f8f033" kindref="member">AddHeader</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>header,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1ad22d2bad4a0425f3811a5c598978a72a" kindref="member">ServerHeader</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a2427004e64c5dd40d0696ce05c7efe9d" kindref="member">SetContent</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>content);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a2427004e64c5dd40d0696ce05c7efe9d" kindref="member">SetContent</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>content);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a2427004e64c5dd40d0696ce05c7efe9d" kindref="member">SetContent</ref>(Stream<sp/>stream);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a9248361cda96873e781f205300bc5075" kindref="member">Send</ref>(Stream<sp/>network);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IResponse.cs"/>
+  </compounddef>
+</doxygen>

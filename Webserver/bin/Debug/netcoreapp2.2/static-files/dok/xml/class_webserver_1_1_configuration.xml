@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="class_webserver_1_1_configuration" kind="class" language="C#" prot="public">
+    <compoundname>Webserver::Configuration</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_webserver_1_1_configuration_1a89784b0f764e6da7ffa34e7a0a354555" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_webserver_1_1_configuration" kindref="compound">Configuration</ref></type>
+        <definition>Configuration Webserver.Configuration._currentConfiguration</definition>
+        <argsstring></argsstring>
+        <name>_currentConfiguration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" line="8" column="38" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_webserver_1_1_configuration_1a3bb21c05e05c176501f8c213cf843070" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_webserver_1_1_configuration" kindref="compound">Configuration</ref></type>
+        <definition>Configuration Webserver.Configuration.CurrentConfiguration</definition>
+        <argsstring></argsstring>
+        <name>CurrentConfiguration</name>
+        <briefdescription>
+<para>Creates a new static <ref refid="class_webserver_1_1_configuration" kindref="compound">Configuration</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" line="13" column="37" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" bodystart="14" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="property" id="class_webserver_1_1_configuration_1a9ded7986f3432160840443bde350541c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Webserver.Configuration.StaticFileDirectory</definition>
+        <argsstring></argsstring>
+        <name>StaticFileDirectory</name>
+        <briefdescription>
+<para>Returns or sets the static files directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" line="30" column="23" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" bodystart="30" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Saves Configurationdata (e.g. StaticFileDirectory). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" line="7" column="1" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" bodystart="6" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_webserver_1_1_configuration_1a89784b0f764e6da7ffa34e7a0a354555" prot="private" virt="non-virtual"><scope>Webserver::Configuration</scope><name>_currentConfiguration</name></member>
+      <member refid="class_webserver_1_1_configuration_1a3bb21c05e05c176501f8c213cf843070" prot="public" virt="non-virtual"><scope>Webserver::Configuration</scope><name>CurrentConfiguration</name></member>
+      <member refid="class_webserver_1_1_configuration_1a9ded7986f3432160840443bde350541c" prot="public" virt="non-virtual"><scope>Webserver::Configuration</scope><name>StaticFileDirectory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

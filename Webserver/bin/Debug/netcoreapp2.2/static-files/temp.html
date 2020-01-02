@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static-files/style.css">
+    <title>Temperature Plugin</title>
+</head>
+<body>
+<h1>range</h1>
+<form method="get">
+    <label for="from">from:
+        <input type="date" id="from" name="from" required>
+    </label>
+    <label for="from">until:
+        <input type="date" id="until" name="until" required>
+    </label>
+    <label for="type_range">rest:
+        <input type="checkbox" id="type_range" name="type" value="rest">
+    </label>
+    <button type="submit" name="GetTemperature">Submit</button>
+</form>
+<h1>exact date</h1>
+<form method="get">
+    <label for="from">date:
+        <input type="date" id="date" name="date" required>
+    </label>
+    <label for="type_exact">rest:
+        <input type="checkbox" id="type_exact" name="type" value="rest">
+    </label>
+    <button type="submit" name="GetTemperature">Submit</button>
+</form>
+<a href="/index.html">index.html</a>
+</body>
+</html>

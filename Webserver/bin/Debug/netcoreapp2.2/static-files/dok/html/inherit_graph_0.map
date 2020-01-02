@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin.html" title=" " alt="" coords="5,115,196,141"/>
+<area shape="rect" id="node2" href="$class_webserver_1_1_plugins_1_1_lower_plugin.html" title="A plugin which lowers text." alt="" coords="244,5,451,32"/>
+<area shape="rect" id="node3" href="$class_webserver_1_1_plugins_1_1_navi_plugin.html" title="A Plugin which shows streets in a given area" alt="" coords="248,56,447,83"/>
+<area shape="rect" id="node4" href="$class_webserver_1_1_plugins_1_1_static_file_plugin.html" title="A Plugin which loads static files from a known directory." alt="" coords="262,107,433,149"/>
+<area shape="rect" id="node5" href="$class_webserver_1_1_plugins_1_1_temp_plugin.html" title="A plugin which handles sensor data." alt="" coords="245,173,450,200"/>
+<area shape="rect" id="node6" href="$class_webserver_1_1_plugins_1_1_test_plugin.html" title="A Plugin which is used to test the functionality of other classes" alt="" coords="248,224,447,251"/>
+</map>

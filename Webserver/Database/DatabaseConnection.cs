@@ -1,17 +1,21 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Threading;
 using Npgsql;
 
 namespace Webserver.Database
 {
+    /// <summary>
+    /// Class to access the PostgresSQL Database.
+    /// </summary>
     public class DatabaseConnection
     {
+        /// <summary>
+        /// Test Connection to Database, only needed for testing
+        /// </summary>
+        /// <returns></returns>
         public string TestConnection()
         {
-            using (NpgsqlConnection connection = new NpgsqlConnection(this.ConnectionString))
+            using (var connection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
@@ -30,22 +34,28 @@ namespace Webserver.Database
             }
         }
 
+        /// <summary>
+        /// Select temperature data from a given range.
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="until"></param>
+        /// <returns>A Dictionary with Date and Temperature data.</returns>
         public Dictionary<string, double> SelectTemperatureRange(DateTime from, DateTime until)
         {
-            using (NpgsqlConnection connection = new NpgsqlConnection(this.ConnectionString))
+            using (var connection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
                     connection.Open();
                     // SQL Statement vorbereiten
-                    NpgsqlCommand command = new NpgsqlCommand(
+                    var command = new NpgsqlCommand(
                         "SELECT time, temp FROM temperature WHERE TO_DATE(time, 'DD/MM/YY') BETWEEN TO_DATE(@from, 'DD/MM/YY') AND TO_DATE(@until, 'DD/MM/YY')",
                         connection);
                     command.Parameters.AddWithValue("@from", from.ToString());
                     command.Parameters.AddWithValue("@until", until.ToString());
-                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    using (var reader = command.ExecuteReader())
                     {
-                        Dictionary<string, double> dictionary = new Dictionary<string, double>();
+                        var dictionary = new Dictionary<string, double>();
                         while (reader.Read())
                         {
                             dictionary.Add(reader.GetString(0), reader.GetDouble(1));
@@ -66,21 +76,26 @@ namespace Webserver.Database
             }
         }
 
+        /// <summary>
+        /// Select temperature data from an exact date.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns>A Dictionary with Date and Temperature data.</returns>
         public Dictionary<string, double> SelectTemperatureExact(DateTime date)
         {
-            using (NpgsqlConnection connection = new NpgsqlConnection(this.ConnectionString))
+            using (var connection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
                     connection.Open();
                     // SQL Statement vorbereiten
-                    NpgsqlCommand command = new NpgsqlCommand(
+                    var command = new NpgsqlCommand(
                         "SELECT time, temp FROM temperature WHERE TO_DATE(time, 'DD/MM/YY')=TO_DATE(@date, 'DD/MM/YY')",
                         connection);
                     command.Parameters.AddWithValue("@date", date.ToString());
-                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    using (var reader = command.ExecuteReader())
                     {
-                        Dictionary<string, double> dictionary = new Dictionary<string, double>();
+                        var dictionary = new Dictionary<string, double>();
                         while (reader.Read())
                         {
                             dictionary.Add(reader.GetString(0), reader.GetDouble(1));
@@ -101,49 +116,20 @@ namespace Webserver.Database
             }
         }
 
-        /*public Dictionary<string, double> SelectTemperatureAll()
-        {
-            using (NpgsqlConnection connection = new NpgsqlConnection(this.ConnectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    // SQL Statement vorbereiten
-                    NpgsqlCommand command = new NpgsqlCommand(
-                        "SELECT time, temp FROM temperature",
-                        connection);
-                    using (NpgsqlDataReader reader = command.ExecuteReader())
-                    {
-                        Dictionary<string, double> dictionary = new Dictionary<string, double>();
-                        while (reader.Read())
-                        {
-                            dictionary.Add(reader.GetString(0), reader.GetDouble(1));
-                        }
-
-                        return dictionary;
-                    }
-                }
-                catch (NpgsqlException npgsqlException)
-                {
-                    Console.WriteLine(npgsqlException.Message);
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-        }*/
-
+        /// <summary>
+        /// Insert new temperature data.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="temperature"></param>
         public void InsertTemperature(DateTime dateTime, double temperature)
         {
-            using (NpgsqlConnection connection = new NpgsqlConnection(this.ConnectionString))
+            using (var connection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
                     connection.Open();
                     // SQL Statement vorbereiten
-                    NpgsqlCommand command = new NpgsqlCommand(
+                    var command = new NpgsqlCommand(
                         "INSERT INTO temperature (time, temp) VALUES (@time, @temp)", connection);
                     // Parameter setzen
                     command.Parameters.AddWithValue("@time", dateTime.ToString());
@@ -163,7 +149,11 @@ namespace Webserver.Database
             }
         }
 
-        /*public void InsertTestData()
+        /*
+        /// <summary>
+        /// Insert 10000 rows for testing
+        /// </summary>
+        public void InsertTestData()
         {
             Random random = new Random();
             for (int j = -10; j < 0; j++)
@@ -182,14 +172,17 @@ namespace Webserver.Database
             Console.WriteLine("fertig");
         }*/
 
+        /// <summary>
+        /// Reads data from Temperaturesensor every minute
+        /// </summary>
         public void ReadSensorData()
         {
-            TimeSpan startTimeSpan = TimeSpan.Zero;
-            TimeSpan periodTimeSpan = TimeSpan.FromMinutes(1);
-            DatabaseConnection connection = new DatabaseConnection();
-            Random random = new Random();
+            var startTimeSpan = TimeSpan.Zero;
+            var periodTimeSpan = TimeSpan.FromMinutes(1);
+            var connection = new DatabaseConnection();
+            var random = new Random();
 
-            Timer timer = new System.Threading.Timer(
+            var timer = new System.Threading.Timer(
                 (e) =>
                 {
                     connection.InsertTemperature(DateTime.Now, random.NextDouble() - 0.5 * 100);
@@ -198,6 +191,9 @@ namespace Webserver.Database
                 null, startTimeSpan, periodTimeSpan);
         }
 
+        /// <summary>
+        /// Returns connection string to connect to database
+        /// </summary>
         public string ConnectionString { get; } = "Server=127.0.0.1;" +
                                                   "Port=5432;" +
                                                   "Database=postgres;" +

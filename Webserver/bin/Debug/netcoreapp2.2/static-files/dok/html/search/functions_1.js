@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['canhandle_89',['CanHandle',['../interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin.html#a02039ffbb2273ec0479d79bdc9092b87',1,'BIF.SWE1.Interfaces.IPlugin.CanHandle()'],['../class_webserver_1_1_plugins_1_1_lower_plugin.html#a322d33952481e3f6e4c05eff0a206714',1,'Webserver.Plugins.LowerPlugin.CanHandle()'],['../class_webserver_1_1_plugins_1_1_navi_plugin.html#a1a1ed1fcf6bff83524eeaba2f027bbbf',1,'Webserver.Plugins.NaviPlugin.CanHandle()'],['../class_webserver_1_1_plugins_1_1_static_file_plugin.html#a85f308308f8c8f495b12759206f74e16',1,'Webserver.Plugins.StaticFilePlugin.CanHandle()'],['../class_webserver_1_1_plugins_1_1_temp_plugin.html#a73e50099bc1819adb4b581b987546d6f',1,'Webserver.Plugins.TempPlugin.CanHandle()'],['../class_webserver_1_1_plugins_1_1_test_plugin.html#adbf372f6c5c47fd817aed223572ce83d',1,'Webserver.Plugins.TestPlugin.CanHandle()']]],
+  ['clear_90',['Clear',['../interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_manager.html#aab6398d160d51e79e1e5f73ac670ce2c',1,'BIF.SWE1.Interfaces.IPluginManager.Clear()'],['../class_webserver_1_1_plugin_manager.html#aba43c61d8efddc8512d864789777ee82',1,'Webserver.PluginManager.Clear()']]],
+  ['createnavihtml_91',['CreateNaviHtml',['../class_webserver_1_1_plugins_1_1_temp_plugin.html#a9e4b6c7a28e084aa512060b563008346',1,'Webserver::Plugins::TempPlugin']]],
+  ['createrestnavixml_92',['CreateRestNaviXml',['../class_webserver_1_1_plugins_1_1_temp_plugin.html#a6ed8bf420a5b6806f4d862c03ca53d30',1,'Webserver::Plugins::TempPlugin']]]
+];

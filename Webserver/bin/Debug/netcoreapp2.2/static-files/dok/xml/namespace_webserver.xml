@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="namespace_webserver" kind="namespace" language="C#">
+    <compoundname>Webserver</compoundname>
+    <innerclass refid="class_webserver_1_1_configuration" prot="public">Webserver::Configuration</innerclass>
+    <innerclass refid="class_webserver_1_1_plugin_manager" prot="public">Webserver::PluginManager</innerclass>
+    <innerclass refid="class_webserver_1_1_program" prot="public">Webserver::Program</innerclass>
+    <innerclass refid="class_webserver_1_1_request" prot="public">Webserver::Request</innerclass>
+    <innerclass refid="class_webserver_1_1_response" prot="public">Webserver::Response</innerclass>
+    <innerclass refid="class_webserver_1_1_url" prot="public">Webserver::Url</innerclass>
+    <innernamespace refid="namespace_webserver_1_1_database">Webserver::Database</innernamespace>
+    <innernamespace refid="namespace_webserver_1_1_plugins">Webserver::Plugins</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Configuration.cs" line="2" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="dir_3d72a06e31d56a30824e52de22fd0de8" kind="dir">
+    <compoundname>/home/jakob/RiderProjects/Webserver/Webserver/Plugins</compoundname>
+    <innerfile refid="_lower_plugin_8cs">LowerPlugin.cs</innerfile>
+    <innerfile refid="_navi_plugin_8cs">NaviPlugin.cs</innerfile>
+    <innerfile refid="_static_file_plugin_8cs">StaticFilePlugin.cs</innerfile>
+    <innerfile refid="_temp_plugin_8cs">TempPlugin.cs</innerfile>
+    <innerfile refid="_test_plugin_8cs">TestPlugin.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Plugins/"/>
+  </compounddef>
+</doxygen>

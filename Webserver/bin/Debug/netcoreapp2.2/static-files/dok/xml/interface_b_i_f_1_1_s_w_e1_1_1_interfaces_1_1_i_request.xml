@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request" kind="interface" language="C#" prot="public">
+    <compoundname>BIF::SWE1::Interfaces::IRequest</compoundname>
+    <derivedcompoundref refid="class_webserver_1_1_request" prot="public" virt="non-virtual">Webserver.Request</derivedcompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a498a036b3bf4597836eb5c05992e3f10" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BIF.SWE1.Interfaces.IRequest.IsValid</definition>
+        <argsstring></argsstring>
+        <name>IsValid</name>
+        <briefdescription>
+<para>Returns true if the request is valid. A request is valid, if method and url could be parsed. A header is not necessary. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="14" column="14" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a35e88dfaff0f47db305a5a747997c642" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IRequest.Method</definition>
+        <argsstring></argsstring>
+        <name>Method</name>
+        <briefdescription>
+<para>Returns the request method in UPPERCASE. get -&gt; GET. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="19" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a69edfb8c2822a48aa6ce8e14b55ef256" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url" kindref="compound">IUrl</ref></type>
+        <definition>IUrl BIF.SWE1.Interfaces.IRequest.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <briefdescription>
+<para>Returns a URL object of the request. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="24" column="14" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1aa7467ce052d15b9a3ea80927d52b4668" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IDictionary&lt; string, string &gt;</type>
+        <definition>IDictionary&lt;string, string&gt; BIF.SWE1.Interfaces.IRequest.Headers</definition>
+        <argsstring></argsstring>
+        <name>Headers</name>
+        <briefdescription>
+<para>Returns the request header. Never returns null. All keys must be lower case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="29" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1ac0ea10598c572feca40cccb512b9186d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IRequest.UserAgent</definition>
+        <argsstring></argsstring>
+        <name>UserAgent</name>
+        <briefdescription>
+<para>Returns the user agent from the request header </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="34" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a7ef093be89bc4f77c382d13d61d2e0b2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BIF.SWE1.Interfaces.IRequest.HeaderCount</definition>
+        <argsstring></argsstring>
+        <name>HeaderCount</name>
+        <briefdescription>
+<para>Returns the number of header or 0, if no header where found. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="39" column="13" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a4517c83027dbe787c26e327f57ce1166" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BIF.SWE1.Interfaces.IRequest.ContentLength</definition>
+        <argsstring></argsstring>
+        <name>ContentLength</name>
+        <briefdescription>
+<para>Returns the parsed content length request header. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="44" column="13" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1aa6b10f0216cce5e3a14d9b0c802a19bf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IRequest.ContentType</definition>
+        <argsstring></argsstring>
+        <name>ContentType</name>
+        <briefdescription>
+<para>Returns the parsed content type request header. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="49" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1ab0b4615cf26c21d424ceb1c3b3241e4f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Stream</type>
+        <definition>Stream BIF.SWE1.Interfaces.IRequest.ContentStream</definition>
+        <argsstring></argsstring>
+        <name>ContentStream</name>
+        <briefdescription>
+<para>Returns the request content (body) stream or null if there is no content stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="54" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1ac849ee6bea96c2ec3dbcf41d81c61eec" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IRequest.ContentString</definition>
+        <argsstring></argsstring>
+        <name>ContentString</name>
+        <briefdescription>
+<para>Returns the request content (body) as string or null if there is no content. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="59" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a15cdbf8cf2ece7b27b25ea3628b1b86e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>byte[]</type>
+        <definition>byte [] BIF.SWE1.Interfaces.IRequest.ContentBytes</definition>
+        <argsstring></argsstring>
+        <name>ContentBytes</name>
+        <briefdescription>
+<para>Returns the request content (body) as byte[] or null if there is no content. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="64" column="14" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="64" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Webserver.Request</label>
+        <link refid="class_webserver_1_1_request"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BIF.SWE1.Interfaces.IRequest</label>
+        <link refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" line="10" column="1" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IRequest.cs" bodystart="9" bodyend="65"/>
+    <listofallmembers>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a15cdbf8cf2ece7b27b25ea3628b1b86e" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>ContentBytes</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a4517c83027dbe787c26e327f57ce1166" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>ContentLength</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1ab0b4615cf26c21d424ceb1c3b3241e4f" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>ContentStream</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1ac849ee6bea96c2ec3dbcf41d81c61eec" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>ContentString</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1aa6b10f0216cce5e3a14d9b0c802a19bf" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>ContentType</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a7ef093be89bc4f77c382d13d61d2e0b2" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>HeaderCount</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1aa7467ce052d15b9a3ea80927d52b4668" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>Headers</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a498a036b3bf4597836eb5c05992e3f10" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>IsValid</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a35e88dfaff0f47db305a5a747997c642" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>Method</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1a69edfb8c2822a48aa6ce8e14b55ef256" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>Url</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request_1ac0ea10598c572feca40cccb512b9186d" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IRequest</scope><name>UserAgent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

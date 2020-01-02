@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url" kind="interface" language="C#" prot="public">
+    <compoundname>BIF::SWE1::Interfaces::IUrl</compoundname>
+    <derivedcompoundref refid="class_webserver_1_1_url" prot="public" virt="non-virtual">Webserver.Url</derivedcompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a04da727404c47c56124111f713010bc6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IUrl.RawUrl</definition>
+        <argsstring></argsstring>
+        <name>RawUrl</name>
+        <briefdescription>
+<para>Returns the raw url. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="13" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a4656893cabef11e3cbd26c6d10bd0598" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IUrl.Path</definition>
+        <argsstring></argsstring>
+        <name>Path</name>
+        <briefdescription>
+<para>Returns the path of the url, without parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="18" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a85b0f70fb6492e11bfc139a5b54fb701" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IDictionary&lt; string, string &gt;</type>
+        <definition>IDictionary&lt;string, string&gt; BIF.SWE1.Interfaces.IUrl.Parameter</definition>
+        <argsstring></argsstring>
+        <name>Parameter</name>
+        <briefdescription>
+<para>Returns a dictionary with the parameter of the url. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="23" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a787ab0e9367816332ca5c073fb71f716" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BIF.SWE1.Interfaces.IUrl.ParameterCount</definition>
+        <argsstring></argsstring>
+        <name>ParameterCount</name>
+        <briefdescription>
+<para>Returns the number of parameter of the url. Returns 0 if there are no parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="28" column="13" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1adbb88764d7cf820522d43091c3044bdb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string[]</type>
+        <definition>string [] BIF.SWE1.Interfaces.IUrl.Segments</definition>
+        <argsstring></argsstring>
+        <name>Segments</name>
+        <briefdescription>
+<para>Returns the segments of the url path. A segment is divided by &apos;/&apos; chars. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="33" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a4eb5bff21fbf3720f296d9fbf84eed4c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IUrl.FileName</definition>
+        <argsstring></argsstring>
+        <name>FileName</name>
+        <briefdescription>
+<para>Returns the filename (with extension) of the url path. If the url contains no filename, a empty string is returned. Never returns null. A filename is present in the url, if the last segment contains a name with at least one dot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="38" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a94aef8ccf3d44b5740c5b8a48626bdb6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IUrl.Extension</definition>
+        <argsstring></argsstring>
+        <name>Extension</name>
+        <briefdescription>
+<para>Returns the extension of the url filename, including the leading dot. If the url contains no filename, a empty string is returned. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="43" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a3097573bc84e99aee06c5c929b53c620" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BIF.SWE1.Interfaces.IUrl.Fragment</definition>
+        <argsstring></argsstring>
+        <name>Fragment</name>
+        <briefdescription>
+<para>Returns the url fragment. A fragment is the part after a &apos;#&apos; char at the end of the url. If the url contains no fragment, a empty string is returned. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="48" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="48" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Webserver.Url</label>
+        <link refid="class_webserver_1_1_url"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BIF.SWE1.Interfaces.IUrl</label>
+        <link refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" line="9" column="1" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IUrl.cs" bodystart="8" bodyend="49"/>
+    <listofallmembers>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a94aef8ccf3d44b5740c5b8a48626bdb6" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>Extension</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a4eb5bff21fbf3720f296d9fbf84eed4c" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>FileName</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a3097573bc84e99aee06c5c929b53c620" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>Fragment</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a85b0f70fb6492e11bfc139a5b54fb701" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>Parameter</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a787ab0e9367816332ca5c073fb71f716" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>ParameterCount</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a4656893cabef11e3cbd26c6d10bd0598" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>Path</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1a04da727404c47c56124111f713010bc6" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>RawUrl</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_url_1adbb88764d7cf820522d43091c3044bdb" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IUrl</scope><name>Segments</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

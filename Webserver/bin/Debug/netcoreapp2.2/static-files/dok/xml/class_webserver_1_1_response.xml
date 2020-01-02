@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="class_webserver_1_1_response" kind="class" language="C#" prot="public">
+    <compoundname>Webserver::Response</compoundname>
+    <basecompoundref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response" prot="public" virt="non-virtual">BIF.SWE1.Interfaces.IResponse</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_webserver_1_1_response_1a2f4cd7d33e9246bb58bdf8a3778984b7" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Webserver.Response._statusCode</definition>
+        <argsstring></argsstring>
+        <name>_statusCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="27" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_webserver_1_1_response_1a48bb65f52379f319805b9db7bc306859" prot="private" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] Webserver.Response._content</definition>
+        <argsstring></argsstring>
+        <name>_content</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="28" column="22" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_webserver_1_1_response_1ab6c60d79d3f10b12db5f6387c59d9a50" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IDictionary&lt; string, string &gt;</type>
+        <definition>IDictionary&lt;string, string&gt; Webserver.Response.Headers</definition>
+        <argsstring></argsstring>
+        <name>Headers</name>
+        <briefdescription>
+<para>Returns a writable dictionary of the response headers. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="33" column="28" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="property" id="class_webserver_1_1_response_1a1c2580a46fcb9389b83e5f50a376568b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Webserver.Response.ContentLength</definition>
+        <argsstring></argsstring>
+        <name>ContentLength</name>
+        <briefdescription>
+<para>Returns the content length or 0 if no content is set yet. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="38" column="20" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="39" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="property" id="class_webserver_1_1_response_1a9bc8ee13be89a460183e4c51f01e572f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Webserver.Response.ContentType</definition>
+        <argsstring></argsstring>
+        <name>ContentType</name>
+        <briefdescription>
+<para>Gets or sets the content type of the response. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="57" column="23" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="property" id="class_webserver_1_1_response_1a39b5523b889777f8d8233b1125d16e99" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Webserver.Response.StatusCode</definition>
+        <argsstring></argsstring>
+        <name>StatusCode</name>
+        <briefdescription>
+<para>Gets or sets the current status code. An Exceptions is thrown, if no status code was set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>InvalidOperationException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Throws an InvalidOperationException if statusCode is 0.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="67" column="20" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="68" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="property" id="class_webserver_1_1_response_1aa2c9616bb773793e16e9524f2ac6044b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Webserver.Response.Status</definition>
+        <argsstring></argsstring>
+        <name>Status</name>
+        <briefdescription>
+<para>Returns the status code as string. (200 OK) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="85" column="23" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="86" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="property" id="class_webserver_1_1_response_1a552377b6ac112bf0bfc8f0c03bbd6037" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Webserver.Response.ServerHeader</definition>
+        <argsstring></argsstring>
+        <name>ServerHeader</name>
+        <briefdescription>
+<para>Gets or sets the Server response header. Defaults to &quot;BIF-SWE1-Server&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="116" column="23" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="116" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_webserver_1_1_response_1a21af9c79f54dc215cb09eaf66a433155" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Webserver.Response.Response</definition>
+        <argsstring>()</argsstring>
+        <name>Response</name>
+        <briefdescription>
+<para>CCreates a new HTTP response </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="17" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="17" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_response_1adfc6b4bf18e9a867673960e13fdc2373" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.Response.AddHeader</definition>
+        <argsstring>(string header, string value)</argsstring>
+        <name>AddHeader</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a21658427220ef19145fe93cd88f8f033">AddHeader</reimplements>
+        <param>
+          <type>string</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds or replaces a response header in the headers dictionary. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>header</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="108" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="108" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_response_1adae9c084cab7ae4d5a55ae4d3b29da8c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.Response.SetContent</definition>
+        <argsstring>(string content)</argsstring>
+        <name>SetContent</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a2427004e64c5dd40d0696ce05c7efe9d">SetContent</reimplements>
+        <param>
+          <type>string</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+<para>Sets a string content. The content will be encoded in UTF-8. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>content</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="122" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_response_1ae1f7df42a25f4f7d248b91cdb1d9c1a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.Response.SetContent</definition>
+        <argsstring>(byte[] content)</argsstring>
+        <name>SetContent</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a1b9f296b907c5eaa3c3d473900a70367">SetContent</reimplements>
+        <param>
+          <type>byte[]</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+<para>Sets a byte[] as content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>content</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="131" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="131" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_response_1a61c7d322fadb19095f8b26e9c7d2e28a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.Response.SetContent</definition>
+        <argsstring>(Stream stream)</argsstring>
+        <name>SetContent</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a1ead413d3527d13b682ac41f5e0d6eff">SetContent</reimplements>
+        <param>
+          <type>Stream</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Sets the stream as content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="141" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="141" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_response_1a2061242888caf570bdc22c4438dfab59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.Response.Send</definition>
+        <argsstring>(Stream network)</argsstring>
+        <name>Send</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response_1a9248361cda96873e781f205300bc5075">Send</reimplements>
+        <param>
+          <type>Stream</type>
+          <declname>network</declname>
+        </param>
+        <briefdescription>
+<para>Sends the response to the network stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>network</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>throws new ArgumentNullException if stream is null</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>InvalidOperationException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Throws InvalidOperationException if content type is set but no content is set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="156" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="156" bodyend="199"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Creates a new HTTP response. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Webserver.Response</label>
+        <link refid="class_webserver_1_1_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IResponse</label>
+        <link refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Webserver.Response</label>
+        <link refid="class_webserver_1_1_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IResponse</label>
+        <link refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" line="13" column="1" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Response.cs" bodystart="12" bodyend="200"/>
+    <listofallmembers>
+      <member refid="class_webserver_1_1_response_1a48bb65f52379f319805b9db7bc306859" prot="private" virt="non-virtual"><scope>Webserver::Response</scope><name>_content</name></member>
+      <member refid="class_webserver_1_1_response_1a2f4cd7d33e9246bb58bdf8a3778984b7" prot="private" virt="non-virtual"><scope>Webserver::Response</scope><name>_statusCode</name></member>
+      <member refid="class_webserver_1_1_response_1adfc6b4bf18e9a867673960e13fdc2373" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>AddHeader</name></member>
+      <member refid="class_webserver_1_1_response_1a1c2580a46fcb9389b83e5f50a376568b" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>ContentLength</name></member>
+      <member refid="class_webserver_1_1_response_1a9bc8ee13be89a460183e4c51f01e572f" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>ContentType</name></member>
+      <member refid="class_webserver_1_1_response_1ab6c60d79d3f10b12db5f6387c59d9a50" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>Headers</name></member>
+      <member refid="class_webserver_1_1_response_1a21af9c79f54dc215cb09eaf66a433155" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>Response</name></member>
+      <member refid="class_webserver_1_1_response_1a2061242888caf570bdc22c4438dfab59" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>Send</name></member>
+      <member refid="class_webserver_1_1_response_1a552377b6ac112bf0bfc8f0c03bbd6037" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>ServerHeader</name></member>
+      <member refid="class_webserver_1_1_response_1adae9c084cab7ae4d5a55ae4d3b29da8c" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>SetContent</name></member>
+      <member refid="class_webserver_1_1_response_1ae1f7df42a25f4f7d248b91cdb1d9c1a4" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>SetContent</name></member>
+      <member refid="class_webserver_1_1_response_1a61c7d322fadb19095f8b26e9c7d2e28a" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>SetContent</name></member>
+      <member refid="class_webserver_1_1_response_1aa2c9616bb773793e16e9524f2ac6044b" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>Status</name></member>
+      <member refid="class_webserver_1_1_response_1a39b5523b889777f8d8233b1125d16e99" prot="public" virt="non-virtual"><scope>Webserver::Response</scope><name>StatusCode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

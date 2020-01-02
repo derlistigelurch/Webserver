@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="class_webserver_1_1_plugin_manager" kind="class" language="C#" prot="public">
+    <compoundname>Webserver::PluginManager</compoundname>
+    <basecompoundref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_manager" prot="public" virt="non-virtual">BIF.SWE1.Interfaces.IPluginManager</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_webserver_1_1_plugin_manager_1acfa662f05dda98fdf36bb12e3b5584ce" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IEnumerable&lt; <ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin" kindref="compound">IPlugin</ref> &gt;</type>
+        <definition>IEnumerable&lt;IPlugin&gt; Webserver.PluginManager.Plugins</definition>
+        <argsstring></argsstring>
+        <name>Plugins</name>
+        <initializer>= new List&lt;<ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin" kindref="compound">IPlugin</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Returns a list of all plugins. Never returns null. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" line="31" column="28" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" bodystart="31" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_webserver_1_1_plugin_manager_1a2445b73ec141d906ea1aef9fdceab6c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Webserver.PluginManager.PluginManager</definition>
+        <argsstring>()</argsstring>
+        <name>PluginManager</name>
+        <briefdescription>
+<para>Creates a new object to manage all plugins. Dynamically loads plugins. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" line="18" column="16" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" bodystart="18" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_plugin_manager_1aff1019a52bcb6b6761e206a450626013" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.PluginManager.Add</definition>
+        <argsstring>(IPlugin plugin)</argsstring>
+        <name>Add</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_manager_1aafdf8fe933ffb358d7bdd714a79bd0c7">Add</reimplements>
+        <param>
+          <type><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin" kindref="compound">IPlugin</ref></type>
+          <declname>plugin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plugin</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" line="37" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_plugin_manager_1a525a9451f6fd2dfaa9dc92cb9d47c953" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.PluginManager.Add</definition>
+        <argsstring>(string plugin)</argsstring>
+        <name>Add</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_manager_1a5ed3f69341929b717ca890e2d41dbdf2">Add</reimplements>
+        <param>
+          <type>string</type>
+          <declname>plugin</declname>
+        </param>
+        <briefdescription>
+<para>Adds a new plugin by type name. If the plugin was already added, nothing will happen. Throws an exeption, when the type cannot be resoled or the type does not implement IPlugin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>plugin</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArgumentNullException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Throws an ArgumentNullException if plugin is null.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>InvalidOperationException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Throws an InvalidOperationException if plugin does not implement IPlugin</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" line="49" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" bodystart="49" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_plugin_manager_1aba43c61d8efddc8512d864789777ee82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.PluginManager.Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <reimplements refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_manager_1aab6398d160d51e79e1e5f73ac670ce2c">Clear</reimplements>
+        <briefdescription>
+<para>Clears all plugins </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" line="78" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" bodystart="78" bodyend="84"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Manages all <ref refid="namespace_webserver_1_1_plugins" kindref="compound">Plugins</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IPluginManager</label>
+        <link refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_manager"/>
+      </node>
+      <node id="1">
+        <label>Webserver.PluginManager</label>
+        <link refid="class_webserver_1_1_plugin_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IPluginManager</label>
+        <link refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_manager"/>
+      </node>
+      <node id="1">
+        <label>Webserver.PluginManager</label>
+        <link refid="class_webserver_1_1_plugin_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" line="13" column="1" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/PluginManager.cs" bodystart="12" bodyend="85"/>
+    <listofallmembers>
+      <member refid="class_webserver_1_1_plugin_manager_1aff1019a52bcb6b6761e206a450626013" prot="public" virt="non-virtual"><scope>Webserver::PluginManager</scope><name>Add</name></member>
+      <member refid="class_webserver_1_1_plugin_manager_1a525a9451f6fd2dfaa9dc92cb9d47c953" prot="public" virt="non-virtual"><scope>Webserver::PluginManager</scope><name>Add</name></member>
+      <member refid="class_webserver_1_1_plugin_manager_1aba43c61d8efddc8512d864789777ee82" prot="public" virt="non-virtual"><scope>Webserver::PluginManager</scope><name>Clear</name></member>
+      <member refid="class_webserver_1_1_plugin_manager_1a2445b73ec141d906ea1aef9fdceab6c4" prot="public" virt="non-virtual"><scope>Webserver::PluginManager</scope><name>PluginManager</name></member>
+      <member refid="class_webserver_1_1_plugin_manager_1acfa662f05dda98fdf36bb12e3b5584ce" prot="public" virt="non-virtual"><scope>Webserver::PluginManager</scope><name>Plugins</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

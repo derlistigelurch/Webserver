@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin" kind="interface" language="C#" prot="public">
+    <compoundname>BIF::SWE1::Interfaces::IPlugin</compoundname>
+    <derivedcompoundref refid="class_webserver_1_1_plugins_1_1_lower_plugin" prot="public" virt="non-virtual">Webserver.Plugins.LowerPlugin</derivedcompoundref>
+    <derivedcompoundref refid="class_webserver_1_1_plugins_1_1_navi_plugin" prot="public" virt="non-virtual">Webserver.Plugins.NaviPlugin</derivedcompoundref>
+    <derivedcompoundref refid="class_webserver_1_1_plugins_1_1_static_file_plugin" prot="public" virt="non-virtual">Webserver.Plugins.StaticFilePlugin</derivedcompoundref>
+    <derivedcompoundref refid="class_webserver_1_1_plugins_1_1_temp_plugin" prot="public" virt="non-virtual">Webserver.Plugins.TempPlugin</derivedcompoundref>
+    <derivedcompoundref refid="class_webserver_1_1_plugins_1_1_test_plugin" prot="public" virt="non-virtual">Webserver.Plugins.TestPlugin</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_1a02039ffbb2273ec0479d79bdc9092b87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BIF.SWE1.Interfaces.IPlugin.CanHandle</definition>
+        <argsstring>(IRequest req)</argsstring>
+        <name>CanHandle</name>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_test_plugin_1adbf372f6c5c47fd817aed223572ce83d">CanHandle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_static_file_plugin_1a85f308308f8c8f495b12759206f74e16">CanHandle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_navi_plugin_1a1a1ed1fcf6bff83524eeaba2f027bbbf">CanHandle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_lower_plugin_1a322d33952481e3f6e4c05eff0a206714">CanHandle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_temp_plugin_1a73e50099bc1819adb4b581b987546d6f">CanHandle</reimplementedby>
+        <param>
+          <type><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request" kindref="compound">IRequest</ref></type>
+          <declname>req</declname>
+        </param>
+        <briefdescription>
+<para>Returns a score between 0 and 1 to indicate that the plugin is willing to handle the request. The plugin with the highest score will execute the request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A score between 0 and 1</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IPlugin.cs" line="15" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_1a68009e206460e69b38692b3dd9fe632e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_response" kindref="compound">IResponse</ref></type>
+        <definition>IResponse BIF.SWE1.Interfaces.IPlugin.Handle</definition>
+        <argsstring>(IRequest req)</argsstring>
+        <name>Handle</name>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_navi_plugin_1afb857acc0618bbd95b9eb7aedc820849">Handle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_static_file_plugin_1ad404f8ad44aa4d3fcc232cc42098743d">Handle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_temp_plugin_1a67ad85bc220797d1c2fe454f58d80397">Handle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_lower_plugin_1ac39a6de623546c80410d9fd87a105259">Handle</reimplementedby>
+        <reimplementedby refid="class_webserver_1_1_plugins_1_1_test_plugin_1ae6575e2a14f8e92847ff1edcdeb0e070">Handle</reimplementedby>
+        <param>
+          <type><ref refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_request" kindref="compound">IRequest</ref></type>
+          <declname>req</declname>
+        </param>
+        <briefdescription>
+<para>Called by the server when the plugin should handle the request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new response object.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IPlugin.cs" line="22" column="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Webserver.Plugins.LowerPlugin</label>
+        <link refid="class_webserver_1_1_plugins_1_1_lower_plugin"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BIF.SWE1.Interfaces.IPlugin</label>
+        <link refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin"/>
+      </node>
+      <node id="3">
+        <label>Webserver.Plugins.NaviPlugin</label>
+        <link refid="class_webserver_1_1_plugins_1_1_navi_plugin"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Webserver.Plugins.StaticFilePlugin</label>
+        <link refid="class_webserver_1_1_plugins_1_1_static_file_plugin"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Webserver.Plugins.TestPlugin</label>
+        <link refid="class_webserver_1_1_plugins_1_1_test_plugin"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Webserver.Plugins.TempPlugin</label>
+        <link refid="class_webserver_1_1_plugins_1_1_temp_plugin"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IPlugin.cs" line="9" column="1" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Interfaces/IPlugin.cs" bodystart="8" bodyend="23"/>
+    <listofallmembers>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_1a02039ffbb2273ec0479d79bdc9092b87" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IPlugin</scope><name>CanHandle</name></member>
+      <member refid="interface_b_i_f_1_1_s_w_e1_1_1_interfaces_1_1_i_plugin_1a68009e206460e69b38692b3dd9fe632e" prot="public" virt="non-virtual"><scope>BIF::SWE1::Interfaces::IPlugin</scope><name>Handle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

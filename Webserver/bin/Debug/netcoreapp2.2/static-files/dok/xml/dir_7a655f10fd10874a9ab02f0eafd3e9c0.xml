@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="dir_7a655f10fd10874a9ab02f0eafd3e9c0" kind="dir">
+    <compoundname>/home/jakob/RiderProjects/Webserver/Webserver/obj/Debug</compoundname>
+    <innerdir refid="dir_e8ea7e9cb9195c070ac6a2b2144fe9a7">/home/jakob/RiderProjects/Webserver/Webserver/obj/Debug/netcoreapp2.2</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/obj/Debug/"/>
+  </compounddef>
+</doxygen>

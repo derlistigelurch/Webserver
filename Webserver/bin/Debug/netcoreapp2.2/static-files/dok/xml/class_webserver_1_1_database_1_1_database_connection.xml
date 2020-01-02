@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="class_webserver_1_1_database_1_1_database_connection" kind="class" language="C#" prot="public">
+    <compoundname>Webserver::Database::DatabaseConnection</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_webserver_1_1_database_1_1_database_connection_1a714f364ed39b626e3b9353408999a535" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Webserver.Database.DatabaseConnection.ConnectionString</definition>
+        <argsstring></argsstring>
+        <name>ConnectionString</name>
+        <initializer>= &quot;Server=127.0.0.1;&quot; +
+                                                  &quot;Port=5432;&quot; +
+                                                  &quot;Database=postgres;&quot; +
+                                                  &quot;User Id=temp;&quot; +
+                                                  &quot;Password=temp;&quot;</initializer>
+        <briefdescription>
+<para>Returns connection string to connect to database </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" line="197" column="23" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" bodystart="197" bodyend="197"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_webserver_1_1_database_1_1_database_connection_1aaede4fd9915c29dcb349f91f3d1cc718" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Webserver.Database.DatabaseConnection.TestConnection</definition>
+        <argsstring>()</argsstring>
+        <name>TestConnection</name>
+        <briefdescription>
+<para>Test Connection to <ref refid="namespace_webserver_1_1_database" kindref="compound">Database</ref>, only needed for testing </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" line="16" column="23" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" bodystart="16" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_database_1_1_database_connection_1a11a2266a6c8950644a1d9bfbc4468253" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Dictionary&lt; string, double &gt;</type>
+        <definition>Dictionary&lt;string, double&gt; Webserver.Database.DatabaseConnection.SelectTemperatureRange</definition>
+        <argsstring>(DateTime from, DateTime until)</argsstring>
+        <name>SelectTemperatureRange</name>
+        <param>
+          <type>DateTime</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>DateTime</type>
+          <declname>until</declname>
+        </param>
+        <briefdescription>
+<para>Select temperature data from a given range. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>until</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A Dictionary with Date and Temperature data.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" line="43" column="27" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" bodystart="43" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_database_1_1_database_connection_1a49d530ffa82e2be9803997f5f10045fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Dictionary&lt; string, double &gt;</type>
+        <definition>Dictionary&lt;string, double&gt; Webserver.Database.DatabaseConnection.SelectTemperatureExact</definition>
+        <argsstring>(DateTime date)</argsstring>
+        <name>SelectTemperatureExact</name>
+        <param>
+          <type>DateTime</type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+<para>Select temperature data from an exact date. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>date</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A Dictionary with Date and Temperature data.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" line="84" column="27" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" bodystart="84" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_database_1_1_database_connection_1a540f356b49ecc94405cb0cfbd2207af5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.Database.DatabaseConnection.InsertTemperature</definition>
+        <argsstring>(DateTime dateTime, double temperature)</argsstring>
+        <name>InsertTemperature</name>
+        <param>
+          <type>DateTime</type>
+          <declname>dateTime</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>temperature</declname>
+        </param>
+        <briefdescription>
+<para>Insert new temperature data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dateTime</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>temperature</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" line="124" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" bodystart="124" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_webserver_1_1_database_1_1_database_connection_1ab5e71d9edc66ecb438d9c3b0a1d0604f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Webserver.Database.DatabaseConnection.ReadSensorData</definition>
+        <argsstring>()</argsstring>
+        <name>ReadSensorData</name>
+        <briefdescription>
+<para>Reads data from Temperaturesensor every minute </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" line="178" column="21" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" bodystart="178" bodyend="192"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to access the PostgresSQL <ref refid="namespace_webserver_1_1_database" kindref="compound">Database</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" line="11" column="1" bodyfile="/home/jakob/RiderProjects/Webserver/Webserver/Database/DatabaseConnection.cs" bodystart="10" bodyend="202"/>
+    <listofallmembers>
+      <member refid="class_webserver_1_1_database_1_1_database_connection_1a714f364ed39b626e3b9353408999a535" prot="public" virt="non-virtual"><scope>Webserver::Database::DatabaseConnection</scope><name>ConnectionString</name></member>
+      <member refid="class_webserver_1_1_database_1_1_database_connection_1a540f356b49ecc94405cb0cfbd2207af5" prot="public" virt="non-virtual"><scope>Webserver::Database::DatabaseConnection</scope><name>InsertTemperature</name></member>
+      <member refid="class_webserver_1_1_database_1_1_database_connection_1ab5e71d9edc66ecb438d9c3b0a1d0604f" prot="public" virt="non-virtual"><scope>Webserver::Database::DatabaseConnection</scope><name>ReadSensorData</name></member>
+      <member refid="class_webserver_1_1_database_1_1_database_connection_1a49d530ffa82e2be9803997f5f10045fd" prot="public" virt="non-virtual"><scope>Webserver::Database::DatabaseConnection</scope><name>SelectTemperatureExact</name></member>
+      <member refid="class_webserver_1_1_database_1_1_database_connection_1a11a2266a6c8950644a1d9bfbc4468253" prot="public" virt="non-virtual"><scope>Webserver::Database::DatabaseConnection</scope><name>SelectTemperatureRange</name></member>
+      <member refid="class_webserver_1_1_database_1_1_database_connection_1aaede4fd9915c29dcb349f91f3d1cc718" prot="public" virt="non-virtual"><scope>Webserver::Database::DatabaseConnection</scope><name>TestConnection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
