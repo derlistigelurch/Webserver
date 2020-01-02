@@ -55,7 +55,7 @@ namespace Webserver.Plugins
 
             response.AddHeader("Connection", "close");
             response.SetContent("<html><body><h1>Hello World!</h1><p>testPlugin</p>" +
-                                "<a href='/index.html'>index.html</a></body></html>");
+                                "<a href='/static-files/index.html'>index.html</a></body></html>");
             return response;
         }
     }

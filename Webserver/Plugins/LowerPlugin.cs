@@ -88,7 +88,7 @@ namespace Webserver.Plugins
                         ),
                         new XElement("p", result),
                         new XElement("a",
-                            new XAttribute("href", "/index.html")
+                            new XAttribute("href", "/static-files/index.html")
                         ), "index.html"
                     )
                 )

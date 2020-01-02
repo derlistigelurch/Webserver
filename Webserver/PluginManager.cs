@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
 using BIF.SWE1.Interfaces;
 using Webserver.Plugins;
 
@@ -23,6 +26,9 @@ namespace Webserver
             Add(new LowerPlugin());
             Add(new NaviPlugin());
             Add(new TempPlugin());
+
+            // load plugins
+            // this.LoadPlugins();
         }
 
         /// <summary>
@@ -63,7 +69,7 @@ namespace Webserver
             }
 
             // throws exception if plugin does not implement IPlugin
-            if (typeof(TestPlugin).GetInterfaces().Contains(typeof(IPlugin)) == false)
+            if (type.GetInterfaces().Contains(typeof(IPlugin)) == false)
             {
                 throw new InvalidOperationException("Plugin must implement IPlugin!;");
             }
@@ -81,6 +87,44 @@ namespace Webserver
             // this.Plugins.ToList().Clear();
             // working
             ((List<IPlugin>) this.Plugins).Clear();
+        }
+
+        private void LoadPlugins()
+        {
+            // Check if the plugin directory exists
+            if (Directory.Exists(Configuration.CurrentConfiguration.PluginDirectory))
+            {
+                // Scan the plugin directory for all available plugins and try to load them
+                foreach (var file in Directory.GetFiles(Configuration.CurrentConfiguration.PluginDirectory))
+                {
+                    if (file.EndsWith(".dll") == false)
+                    {
+                        continue;
+                    }
+
+                    var dll = Assembly.LoadFrom(Path.Combine(Configuration.CurrentConfiguration.PluginDirectory, file));
+                    var types = dll.GetExportedTypes();
+                    foreach (var type in types)
+                    {
+                        try
+                        {
+                            if (type.GetInterface(typeof(IPlugin).ToString()) != null)
+                            {
+                                Add(Activator.CreateInstance(type) as IPlugin);
+                            }
+                        }
+                        catch (InvalidOperationException invalidOperationException)
+                        {
+                            Console.WriteLine(invalidOperationException.Message);
+                            throw;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(Configuration.CurrentConfiguration.PluginDirectory);
+            }
         }
     }
 }

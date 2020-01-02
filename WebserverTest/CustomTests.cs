@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using Webserver;
 
 namespace BIF.SWE1.UnitTests
 {
@@ -50,22 +51,6 @@ namespace BIF.SWE1.UnitTests
             var obj = CreateInstance().GetDatabaseConnection();
             var result = obj.SelectTemperatureRange(DateTime.MinValue, DateTime.Now);
             Assert.That(result.Count, Is.GreaterThanOrEqualTo(10000));
-        }
-
-        [Test]
-        public void db_select_temperature_exact()
-        {
-            var obj = CreateInstance().GetDatabaseConnection();
-            var result = obj.SelectTemperatureExact(new DateTime(14, 1, 1));
-            Assert.That(result.Count, Is.Not.Zero);
-        }
-
-        [Test]
-        public void db_select_temperature_exact_no_data_found()
-        {
-            var obj = CreateInstance().GetDatabaseConnection();
-            var result = obj.SelectTemperatureExact(DateTime.MinValue);
-            Assert.That(result.Count, Is.Zero);
         }
 
         [Test]
@@ -125,15 +110,16 @@ namespace BIF.SWE1.UnitTests
         }
 
         [Test]
-        public void temp_plugin_create_navi_hml()
+        public void temp_plugin_create_temp_html()
         {
+            var url = new Url("/static-files/temp.html?from=2020-01-01&until=2020-01-09&page=2&GetTemperature=");
             var data = new Dictionary<string, double> {{"a", 1}, {"b", 2}, {"c", 3}};
-            var obj = CreateInstance().GetTempPlugin().CreateNaviHtml(data);
+            var obj = CreateInstance().GetTempPlugin().CreateNaviHtml(data, 2, url);
             Assert.That(obj, Is.Not.Null, "Cannot create html");
         }
 
         [Test]
-        public void temp_plugin_create_navi_xml()
+        public void temp_plugin_create_temp_xml()
         {
             var data = new Dictionary<string, double> {{"a", 1}, {"b", 2}, {"c", 3}};
             var obj = CreateInstance().GetTempPlugin().CreateRestNaviXml(data);

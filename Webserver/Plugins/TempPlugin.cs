@@ -32,6 +32,7 @@ namespace Webserver.Plugins
         {
             var response = new Response() {StatusCode = 200};
             var databaseConnection = new DatabaseConnection();
+            var page = 1;
             Dictionary<string, double> tempData = null;
 
             if (req.Url.Parameter.ContainsKey("until") && req.Url.Parameter.ContainsKey("from"))
@@ -47,6 +48,11 @@ namespace Webserver.Plugins
                     this.ParseToDateTime(req.Url.Parameter["date"]));
             }
 
+            if (req.Url.Parameter.ContainsKey("page"))
+            {
+                page = Convert.ToInt32(req.Url.Parameter["page"]);
+            }
+
             if (req.Url.Parameter.ContainsKey("type") && req.Url.Parameter["type"].Equals("rest"))
             {
                 response.ContentType = "text/xml";
@@ -55,7 +61,7 @@ namespace Webserver.Plugins
             else
             {
                 response.ContentType = "text/html";
-                response.SetContent(CreateNaviHtml(tempData));
+                response.SetContent(CreateNaviHtml(tempData, page, req.Url));
             }
 
             return response;
@@ -89,9 +95,12 @@ namespace Webserver.Plugins
         /// Create a valid HTML site.
         /// </summary>
         /// <param name="data"></param>
+        /// <param name="page"></param>
+        /// <param name="url"></param>
         /// <returns>A valid HTML site as string.</returns>
-        public string CreateNaviHtml(Dictionary<string, double> data)
+        public string CreateNaviHtml(Dictionary<string, double> data, int page, IUrl url)
         {
+            // temp.html?from=2020-01-01&until=2020-01-02&GetTemperature=
             // Setup base structure:
             var xDocument = new XDocument();
             var head = new XElement("html",
@@ -110,11 +119,43 @@ namespace Webserver.Plugins
                 new XElement("th", "DATUM"),
                 new XElement("th", "TEMPERATUR"),
                 new XElement("a",
-                    new XAttribute("href", "/index.html")
+                    new XAttribute("href",
+                        "temp.html?from=" + url.Parameter["from"] +
+                        "&until=" + url.Parameter["until"] + "&page=" +
+                        (page + 1) + "&GetTemperature=")
+                ), "next",
+                new XElement("br"),
+                new XElement("a",
+                    new XAttribute("href",
+                        "temp.html?from=" + url.Parameter["from"] +
+                        "&until=" + url.Parameter["until"] + "&page=" +
+                        (page - 1) + "&GetTemperature=")
+                ), "previous",
+                new XElement("br"),
+                new XElement("a",
+                    new XAttribute("href", "/static-files/index.html")
                 ), "index.html"
             );
+            var i = 0;
+            if (page != 1)
+            {
+                i = (page - 1) * 20;
+            }
+
+            var current = 0;
             foreach (var (key, value) in data)
             {
+                if (current < page * 20)
+                {
+                    current++;
+                    continue;
+                }
+
+                if (i++ > page * 20)
+                {
+                    break;
+                }
+
                 var temp = new XElement("tr",
                     new XElement("td", key),
                     new XElement("td", value)

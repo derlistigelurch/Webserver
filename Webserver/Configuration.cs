@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace Webserver
 {
     /// <summary>
@@ -28,5 +30,7 @@ namespace Webserver
         /// Returns or sets the static files directory.
         /// </summary>
         public string StaticFileDirectory { get; set; }
+
+        public string PluginDirectory => Path.Combine(System.Environment.CurrentDirectory, "plugins");
     }
 }
