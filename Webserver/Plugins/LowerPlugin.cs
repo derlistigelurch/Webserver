@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using BIF.SWE1.Interfaces;
@@ -22,8 +23,8 @@ namespace Webserver.Plugins
             // Content-Length: 15
             //
             // lower=halloWelt <-- CONTENT
-            return string.IsNullOrEmpty(req.ContentString) == false
-                ? 1.0f
+            return string.IsNullOrEmpty(req.ContentString) == false /*&& req.ContentString.Contains("lower")*/
+                ? 0.8f
                 : 0.0f;
         }
 
@@ -38,63 +39,26 @@ namespace Webserver.Plugins
             // lower=halloWelt
             // hallowelt
 
-            var response = new Response {StatusCode = 200};
+            var response = new Response(){StatusCode = 200};
             response.AddHeader("Connection", "close");
 
             // get content from contentstring (lower=halloWelt&submit=)
             // realContentString = halloWelt
             var realContentString = req.ContentString.Split('&').First().Substring(req.ContentString.IndexOf('=') + 1);
 
-            response.SetContent(string.IsNullOrEmpty(realContentString)
-                ? CreateToLowerHtml("Bitte geben Sie einen Text ein")
-                : CreateToLowerHtml(realContentString.ToLower()));
+            var result = (string.IsNullOrEmpty(realContentString))
+                ? "Bitte geben Sie einen Text ein"
+                : realContentString.ToLower();
+
+            if (File.Exists(Path.Combine(Configuration.CurrentConfiguration.StaticFileDirectory, "toLower.html")))
+            {
+                response.SetContent(File.ReadAllText(Path.Combine(
+                    Configuration.CurrentConfiguration.StaticFileDirectory,
+                    "toLower.html")).Replace("<pre id=\"result\"></pre>", result));
+            }
 
             response.ContentType = "text/html";
             return response;
-        }
-
-        /// <summary>
-        /// Creates a valid HTML site.
-        /// </summary>
-        /// <param name="result"></param>
-        /// <returns>A valid HTML site</returns>
-        private string CreateToLowerHtml(string result)
-        {
-            var xDocument = new XDocument(
-                new XDocumentType("html", null, null, null),
-                new XElement("html",
-                    new XAttribute("lang", "de"),
-                    new XElement("head"),
-                    new XElement("title", "ToLower"),
-                    new XElement("link",
-                        new XAttribute("rel", "stylesheet"),
-                        new XAttribute("type", "text/css"),
-                        new XAttribute("href", "/static-files/style.css")
-                    ),
-                    new XElement("body",
-                        new XElement("form",
-                            new XAttribute("method", "post"),
-                            new XElement("label",
-                                new XAttribute("for", "lower"), "Input: ",
-                                new XElement("input",
-                                    new XAttribute("type", "text"),
-                                    new XAttribute("id", "lower"),
-                                    new XAttribute("name", "lower")
-                                )),
-                            new XElement("button",
-                                new XAttribute("type", "submit"),
-                                new XAttribute("name", "submit"), "Submit"
-                            )
-                        ),
-                        new XElement("p", result),
-                        new XElement("a",
-                            new XAttribute("href", "/static-files/index.html")
-                        ), "index.html"
-                    )
-                )
-            );
-
-            return xDocument.ToString();
         }
     }
 }
