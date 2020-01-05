@@ -15,7 +15,7 @@ namespace Webserver.Plugins
     public class NaviPlugin : IPlugin
     {
         // street : city
-        // HashSet: no dublicates
+        // HashSet: no duplicates
         private static readonly Dictionary<string, HashSet<string>> StreetCityDictionary =
             new Dictionary<string, HashSet<string>>();
 
