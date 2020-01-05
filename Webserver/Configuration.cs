@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace Webserver
@@ -12,20 +13,10 @@ namespace Webserver
         /// <summary>
         /// Creates a new static Configuration object.
         /// </summary>
-        public static Configuration CurrentConfiguration
-        {
-            get
-            {
-                var configuration = _currentConfiguration;
-                if (configuration != null)
-                {
-                    return configuration;
-                }
-
-                return (_currentConfiguration = new Configuration());
-            }
-        }
-
+        public static Configuration CurrentConfiguration =>
+            _currentConfiguration ?? (_currentConfiguration = new Configuration());
+        // if(_currentConfiguration) == null
+        
         /// <summary>
         /// Returns or sets the static files directory.
         /// </summary>

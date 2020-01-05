@@ -89,7 +89,7 @@ namespace Webserver
             ((List<IPlugin>) this.Plugins).Clear();
         }
 
-        private void LoadPlugins()
+        /*private void LoadPlugins()
         {
             // Check if the plugin directory exists
             if (Directory.Exists(Configuration.CurrentConfiguration.PluginDirectory))
@@ -125,6 +125,6 @@ namespace Webserver
             {
                 Directory.CreateDirectory(Configuration.CurrentConfiguration.PluginDirectory);
             }
-        }
+        }*/
     }
 }

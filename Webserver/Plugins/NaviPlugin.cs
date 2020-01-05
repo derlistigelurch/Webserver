@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using BIF.SWE1.Interfaces;
 using OsmSharp.Streams;
 
@@ -20,8 +19,8 @@ namespace Webserver.Plugins
         private static readonly Dictionary<string, HashSet<string>> StreetCityDictionary =
             new Dictionary<string, HashSet<string>>();
 
-        private static object refreshLock = new object();
-        private static bool isRefreshing = false;
+        private static readonly object RefreshLock = new object();
+        private static bool _isRefreshing = false;
 
         /// <summary>
         /// Returns a score between 0 and 1 to indicate that the plugin is willing to handle the request. The plugin with the highest score will execute the request.
@@ -49,9 +48,9 @@ namespace Webserver.Plugins
         {
             var response = new Response() {StatusCode = 200};
             
-            lock (refreshLock)
+            lock (RefreshLock)
             {
-                if (isRefreshing)
+                if (_isRefreshing)
                 {
                     response.SetContent(this.CreateNaviHtml("navi.html",
                         "<script>alert('Karte wird gerade neu geladen');</script>"));
@@ -77,17 +76,16 @@ namespace Webserver.Plugins
         /// <summary>
         /// Reload the Street-City-Dictionary
         /// </summary>
-        /// <returns>A string with the new HTML-site</returns>
         private void ReloadMap()
         {
-            lock (refreshLock)
+            lock (RefreshLock)
             {
-                if (isRefreshing)
+                if (_isRefreshing)
                 {
                     return;
                 }
 
-                isRefreshing = true;
+                _isRefreshing = true;
             }
 
             using (var fileStream =
@@ -122,9 +120,9 @@ namespace Webserver.Plugins
                 Console.WriteLine("Elapsed Time = {0}", sw.Elapsed);
             }
 
-            lock (refreshLock)
+            lock (RefreshLock)
             {
-                isRefreshing = false;
+                _isRefreshing = false;
             }
         }
 
