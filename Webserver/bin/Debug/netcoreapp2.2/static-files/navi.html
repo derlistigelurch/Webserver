@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="/static-files/style.css">
     <title>Navi Plugin</title>
 </head>
 <body>
-<h1>under construction</h1>
+<h1>Orte suchen</h1>
+<form method="post">
+    <label for="street">Straße:
+        <input type="text" id="street" name="street">
+    </label>
+    <label for="navigation">
+        <button type="submit" id="navigation" name="navigation">suchen</button>
+    </label>
+</form>
+<h1>Karte neu erzeugen</h1>
+<form method="post">
+    <label for="refresh">Karte neu erzeugen:
+        <button type="submit" id="refresh" name="refresh">LOS!</button>
+    </label>
+</form>
+------------------------------------------------------------------------------
+<br>
+<pre id="result"></pre>
+<br>
 <a href="/static-files/index.html">index.html</a>
 </body>
 </html>

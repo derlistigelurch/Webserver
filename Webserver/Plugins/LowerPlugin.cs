@@ -23,7 +23,7 @@ namespace Webserver.Plugins
             // Content-Length: 15
             //
             // lower=halloWelt <-- CONTENT
-            return string.IsNullOrEmpty(req.ContentString) == false /*&& req.ContentString.Contains("lower")*/
+            return string.IsNullOrEmpty(req.ContentString) == false
                 ? 0.8f
                 : 0.0f;
         }

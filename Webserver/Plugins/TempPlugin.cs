@@ -122,15 +122,14 @@ namespace Webserver.Plugins
                     new XAttribute("href",
                         "temp.html?from=" + url.Parameter["from"] +
                         "&until=" + url.Parameter["until"] + "&page=" +
-                        (page + 1) + "&GetTemperature=")
-                ), "next",
-                new XElement("br"),
+                        (page - 1) + "&GetTemperature=")
+                ), "previous | ",
                 new XElement("a",
                     new XAttribute("href",
                         "temp.html?from=" + url.Parameter["from"] +
                         "&until=" + url.Parameter["until"] + "&page=" +
-                        (page - 1) + "&GetTemperature=")
-                ), "previous",
+                        (page + 1) + "&GetTemperature=")
+                ), "next",
                 new XElement("br"),
                 new XElement("a",
                     new XAttribute("href", "/static-files/index.html")

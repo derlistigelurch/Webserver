@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using BIF.SWE1.Interfaces;
 using System.Threading;
+using BIF.SWE1.Interfaces;
 using Webserver.Database;
 
 namespace Webserver
@@ -31,8 +31,8 @@ namespace Webserver
                 var socket = listener.AcceptSocket();
                 // var thread = new Thread(HandleRequest);
                 // thread.Start(socket);
-                // ThreadPool.QueueUserWorkItem(HandleRequest, socket);
-                HandleRequest(socket);
+                ThreadPool.QueueUserWorkItem(HandleRequest, socket);
+                // HandleRequest(socket);
             }
         }
 

@@ -20,10 +20,10 @@
     <li><a href="/static-files/foo.txt">load txt</a></li>
     <li><a href="/static-files/foo.json">load json</a></li>
 </ul>
-<button type="button"
-        onclick="document.getElementById('js_test').innerHTML = Date()">
-    Click me to display Date and Time.
-</button>
-<p id="js_test"></p>
+<script>
+    window.onload = function () {
+        console.log('Dokument geladen');
+    }
+</script>
 </body>
 </html>

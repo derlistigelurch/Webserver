@@ -26,7 +26,7 @@ namespace Uebungen
 
         public string GetNaviUrl()
         {
-            throw new NotImplementedException();
+            return "/static-files/navi.html";
         }
 
         public IPlugin GetNavigationPlugin()
