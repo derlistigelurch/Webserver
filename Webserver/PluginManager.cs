@@ -97,7 +97,6 @@ namespace Webserver
                 {
                     if (file.EndsWith(".dll"))
                     {
-                        Console.WriteLine(file);
                         var dll = Assembly.LoadFrom(file);
                         foreach (var type in dll.GetTypes())
                         {
@@ -108,11 +107,6 @@ namespace Webserver
                         }
                     }
                 }
-            }
-            else
-            {
-                Directory.CreateDirectory(Configuration.CurrentConfiguration.PluginDirectory);
-                Console.WriteLine("wurde erstellt bruda");
             }
         }
     }
