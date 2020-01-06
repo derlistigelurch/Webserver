@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using BIF.SWE1.Interfaces;
-using Webserver.Plugins;
 
 namespace Webserver
 {
@@ -21,14 +20,14 @@ namespace Webserver
         public PluginManager()
         {
             // Add("Webserver.Plugins.TestPlugin");
-            Add(new TestPlugin());
-            Add(new StaticFilePlugin());
-            Add(new LowerPlugin());
-            Add(new NaviPlugin());
-            Add(new TempPlugin());
+            // Add(new TestPlugin());
+            // Add(new StaticFilePlugin());
+            // Add(new LowerPlugin());
+            // Add(new NaviPlugin());
+            // Add(new TempPlugin());
 
             // load plugins
-            // this.LoadPlugins();
+            this.LoadPlugins();
         }
 
         /// <summary>
@@ -89,34 +88,23 @@ namespace Webserver
             ((List<IPlugin>) this.Plugins).Clear();
         }
 
-        /*private void LoadPlugins()
+        private void LoadPlugins()
         {
             // Check if the plugin directory exists
             if (Directory.Exists(Configuration.CurrentConfiguration.PluginDirectory))
             {
-                // Scan the plugin directory for all available plugins and try to load them
                 foreach (var file in Directory.GetFiles(Configuration.CurrentConfiguration.PluginDirectory))
                 {
-                    if (file.EndsWith(".dll") == false)
+                    if (file.EndsWith(".dll"))
                     {
-                        continue;
-                    }
-
-                    var dll = Assembly.LoadFrom(Path.Combine(Configuration.CurrentConfiguration.PluginDirectory, file));
-                    var types = dll.GetExportedTypes();
-                    foreach (var type in types)
-                    {
-                        try
+                        Console.WriteLine(file);
+                        var dll = Assembly.LoadFrom(file);
+                        foreach (var type in dll.GetTypes())
                         {
-                            if (type.GetInterface(typeof(IPlugin).ToString()) != null)
+                            if (typeof(IPlugin).IsAssignableFrom(type))
                             {
                                 Add(Activator.CreateInstance(type) as IPlugin);
                             }
-                        }
-                        catch (InvalidOperationException invalidOperationException)
-                        {
-                            Console.WriteLine(invalidOperationException.Message);
-                            throw;
                         }
                     }
                 }
@@ -124,7 +112,8 @@ namespace Webserver
             else
             {
                 Directory.CreateDirectory(Configuration.CurrentConfiguration.PluginDirectory);
+                Console.WriteLine("wurde erstellt bruda");
             }
-        }*/
+        }
     }
 }

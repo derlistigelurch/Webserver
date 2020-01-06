@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using BIF.SWE1.Interfaces;
 
@@ -27,7 +28,7 @@ namespace Webserver
                 if (line.Contains(':'))
                 {
                     var temp = line.Split(':');
-                    this.Headers.Add(temp[0].Trim().ToLower(), temp[1].Trim());
+                    this.Headers.Add(temp.First().Trim().ToLower(), temp.Last().Trim());
                 }
                 else
                 {
@@ -43,7 +44,7 @@ namespace Webserver
                         }
                         else
                         {
-                            this.Method = temp[0].ToUpper();
+                            this.Method = temp.First().ToUpper();
                         }
                     }
                 }

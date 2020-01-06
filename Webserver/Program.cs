@@ -70,7 +70,8 @@ namespace Webserver
                 var response = new Response {StatusCode = 404};
                 response.Send(stream);
             }
-
+            
+            pluginManager.Clear();
             socket.Close();
         }
     }
