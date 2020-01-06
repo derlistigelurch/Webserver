@@ -184,8 +184,8 @@ namespace Webserver.Database
             while (true)
             {
                 this.InsertTemperature(DateTime.Now, random.NextDouble() - 0.5 * 100);
-                Console.WriteLine("insert");
-                Thread.Sleep(10000); // 60000 1 minute
+                // Console.WriteLine("insert");
+                Thread.Sleep(60000); // 60000 1 minute
             }
         }
 
