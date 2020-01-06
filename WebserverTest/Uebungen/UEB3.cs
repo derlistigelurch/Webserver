@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using BIF.SWE1.Interfaces;
 using Webserver;
-using Webserver.Plugins;
 
 namespace Uebungen
 {
@@ -27,7 +26,7 @@ namespace Uebungen
 
         public IPlugin GetTestPlugin()
         {
-            return new TestPlugin();
+            return new TestPlugin.TestPlugin();
         }
     }
 }

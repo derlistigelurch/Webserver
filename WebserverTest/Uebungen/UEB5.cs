@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using BIF.SWE1.Interfaces;
 using Webserver;
-using Webserver.Plugins;
 
 namespace Uebungen
 {
@@ -28,7 +27,7 @@ namespace Uebungen
 
         public IPlugin GetStaticFilePlugin()
         {
-            return new StaticFilePlugin();
+            return new StaticFilePlugin.StaticFilePlugin();
         }
 
         public string GetStaticFileUrl(string fileName)

@@ -13,6 +13,11 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NaviPlugin\NaviPlugin.csproj" />
+      <ProjectReference Include="..\StaticFilePlugin\StaticFilePlugin.csproj" />
+      <ProjectReference Include="..\TempPlugin\TempPlugin.csproj" />
+      <ProjectReference Include="..\TestPlugin\TestPlugin.csproj" />
+      <ProjectReference Include="..\ToLowerPlugin\ToLowerPlugin.csproj" />
       <ProjectReference Include="..\Webserver\Webserver.csproj" />
     </ItemGroup>
 

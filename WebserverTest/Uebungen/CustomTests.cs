@@ -5,7 +5,6 @@ using System.Text;
 using BIF.SWE1.Interfaces;
 using Webserver;
 using Webserver.Database;
-using Webserver.Plugins;
 
 namespace Uebungen
 {
@@ -21,14 +20,14 @@ namespace Uebungen
             return new DatabaseConnection();
         }
 
-        public TempPlugin GetTempPlugin()
+        public TempPlugin.TempPlugin GetTempPlugin()
         {
-            return new TempPlugin();
+            return new TempPlugin.TempPlugin();
         }
 
-        public StaticFilePlugin GetStaticFilePlugin()
+        public StaticFilePlugin.StaticFilePlugin GetStaticFilePlugin()
         {
-            return new StaticFilePlugin();
+            return new StaticFilePlugin.StaticFilePlugin();
         }
     }
 }
