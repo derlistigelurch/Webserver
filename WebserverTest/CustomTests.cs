@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Webserver;
+using Webserver.Database;
 
 namespace BIF.SWE1.UnitTests
 {
@@ -67,13 +68,6 @@ namespace BIF.SWE1.UnitTests
             var obj = CreateInstance().GetDatabaseConnection();
             var result = obj.SelectTemperatureRange(DateTime.MinValue, DateTime.MinValue.AddHours(1));
             Assert.That(result.Count, Is.Zero);
-        }
-
-        [Test]
-        public void db_read_sensor_data()
-        {
-            var obj = CreateInstance().GetDatabaseConnection();
-            obj.ReadSensorData();
         }
 
         #endregion

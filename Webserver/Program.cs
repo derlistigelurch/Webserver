@@ -15,7 +15,7 @@ namespace Webserver
             // databaseConnection.InsertTestData();
             var databaseConnection = new DatabaseConnection();
             // read sensor data every 5 minutes
-            databaseConnection.ReadSensorData();
+            ThreadPool.QueueUserWorkItem(databaseConnection.ReadSensorData);
 
             // configure static file directory
             Configuration.CurrentConfiguration.StaticFileDirectory = "static-files";

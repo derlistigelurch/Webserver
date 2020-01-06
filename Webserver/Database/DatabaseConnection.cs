@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Npgsql;
 
 namespace Webserver.Database
@@ -175,20 +176,17 @@ namespace Webserver.Database
         /// <summary>
         /// Reads data from Temperaturesensor every minute
         /// </summary>
-        public void ReadSensorData()
+        /// <param name="obj">Threading object parameter</param>
+        public void ReadSensorData(object obj)
         {
-            var startTimeSpan = TimeSpan.Zero;
-            var periodTimeSpan = TimeSpan.FromMinutes(1);
-            var connection = new DatabaseConnection();
             var random = new Random();
 
-            var timer = new System.Threading.Timer(
-                (e) =>
-                {
-                    connection.InsertTemperature(DateTime.Now, random.NextDouble() - 0.5 * 100);
-                    // Console.WriteLine("insert");
-                },
-                null, startTimeSpan, periodTimeSpan);
+            while (true)
+            {
+                this.InsertTemperature(DateTime.Now, random.NextDouble() - 0.5 * 100);
+                Console.WriteLine("insert");
+                Thread.Sleep(10000); // 60000 1 minute
+            }
         }
 
         /// <summary>

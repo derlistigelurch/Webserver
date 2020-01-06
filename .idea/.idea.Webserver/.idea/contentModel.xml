@@ -18,7 +18,7 @@
         <e p="Interfaces.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="Interfaces.AssemblyInfo.cs" t="Include" />
             </e>
@@ -30,7 +30,7 @@
         <e p="NaviPlugin.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="NaviPlugin.AssemblyInfo.cs" t="Include" />
             </e>
@@ -42,7 +42,7 @@
         <e p="StaticFilePlugin.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="StaticFilePlugin.AssemblyInfo.cs" t="Include" />
             </e>
@@ -54,7 +54,7 @@
         <e p="TempPlugin.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="TempPlugin.AssemblyInfo.cs" t="Include" />
             </e>
@@ -66,7 +66,7 @@
         <e p="TestPlugin.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="TestPlugin.AssemblyInfo.cs" t="Include" />
             </e>
@@ -78,7 +78,7 @@
         <e p="ToLowerPlugin.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="ToLowerPlugin.AssemblyInfo.cs" t="Include" />
             </e>
@@ -99,7 +99,7 @@
         <e p="Webserver.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="Webserver.AssemblyInfo.cs" t="Include" />
             </e>
@@ -129,7 +129,7 @@
         <e p="WebserverTest.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="WebserverTest.AssemblyInfo.cs" t="Include" />
               <e p="WebserverTest.Program.cs" t="Include" />
