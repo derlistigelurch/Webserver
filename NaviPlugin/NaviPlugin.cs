@@ -64,7 +64,7 @@ namespace NaviPlugin
             {
                 //street=Triester+Stra%C3%9Fe&navigation=
                 response.SetContent(
-                    LoadCities(HttpUtility.HtmlDecode(req.ContentString.Split('&').First()
+                    LoadCities(ParseCharacters(req.ContentString.Split('&').First()
                         .Substring(req.ContentString.IndexOf('=') + 1))));
             }
             else
@@ -158,7 +158,6 @@ namespace NaviPlugin
             return CreateNaviHtml("navi.html", result.ToString());
         }
 
-        /*
         /// <summary>
         /// HTML input cannot parse UTF-8 characters and " " correctly, so heres a function to do this
         /// </summary>
@@ -192,7 +191,7 @@ namespace NaviPlugin
             }
 
             return s;
-        }*/
+        }
 
         /// <summary>
         /// Creates a new Html file for the navi plugin
