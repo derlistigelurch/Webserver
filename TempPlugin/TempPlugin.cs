@@ -57,12 +57,12 @@ namespace TempPlugin
             if (req.Url.Parameter.ContainsKey("type") && req.Url.Parameter["type"].Equals("rest"))
             {
                 response.ContentType = "text/xml";
-                response.SetContent(CreateRestNaviXml(tempData));
+                response.SetContent(CreateRestXml(tempData));
             }
             else
             {
                 response.ContentType = "text/html";
-                response.SetContent(CreateNaviHtml(tempData, page, req.Url));
+                response.SetContent(CreateHtml(tempData, page, req.Url));
             }
 
             return response;
@@ -73,7 +73,7 @@ namespace TempPlugin
         /// </summary>
         /// <param name="data"></param>
         /// <returns>A valid string which contains a valid XML object</returns>
-        public string CreateRestNaviXml(Dictionary<string, double> data)
+        public string CreateRestXml(Dictionary<string, double> data)
         {
             // Setup base structure:
             var xDocument = new XDocument();
@@ -99,7 +99,7 @@ namespace TempPlugin
         /// <param name="page"></param>
         /// <param name="url"></param>
         /// <returns>A valid HTML site as string.</returns>
-        public string CreateNaviHtml(Dictionary<string, double> data, int page, IUrl url)
+        public string CreateHtml(Dictionary<string, double> data, int page, IUrl url)
         {
             // temp.html?from=2020-01-01&until=2020-01-02&GetTemperature=
             // Setup base structure:

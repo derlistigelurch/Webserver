@@ -1,6 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
+using System.Web;
 using BIF.SWE1.Interfaces;
 using Webserver;
 
@@ -51,7 +51,7 @@ namespace ToLowerPlugin
 
             var result = (string.IsNullOrEmpty(realContentString))
                 ? "Bitte geben Sie einen Text ein"
-                : realContentString.ToLower();
+                : HttpUtility.UrlDecode(realContentString).ToLower();
 
             if (File.Exists(Path.Combine(Configuration.CurrentConfiguration.StaticFileDirectory, "toLower.html")))
             {

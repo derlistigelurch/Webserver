@@ -108,7 +108,7 @@ namespace BIF.SWE1.UnitTests
         {
             var url = new Url("/static-files/temp.html?from=2020-01-01&until=2020-01-09&page=2&GetTemperature=");
             var data = new Dictionary<string, double> {{"a", 1}, {"b", 2}, {"c", 3}};
-            var obj = CreateInstance().GetTempPlugin().CreateNaviHtml(data, 2, url);
+            var obj = CreateInstance().GetTempPlugin().CreateHtml(data, 2, url);
             Assert.That(obj, Is.Not.Null, "Cannot create html");
         }
 
@@ -116,7 +116,7 @@ namespace BIF.SWE1.UnitTests
         public void temp_plugin_create_temp_xml()
         {
             var data = new Dictionary<string, double> {{"a", 1}, {"b", 2}, {"c", 3}};
-            var obj = CreateInstance().GetTempPlugin().CreateRestNaviXml(data);
+            var obj = CreateInstance().GetTempPlugin().CreateRestXml(data);
             Assert.That(obj, Is.Not.Null, "Cannot create xml");
         }
 

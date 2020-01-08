@@ -172,7 +172,7 @@ namespace Webserver.Database
 
             Console.WriteLine("fertig");
         }*/
-
+        
         /// <summary>
         /// Reads data from Temperaturesensor every minute
         /// </summary>
